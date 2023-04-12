@@ -24,6 +24,12 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 
 ----
 
+## Löve2D
+
+Tutoriel Löve2D : <https://www.notion.so/Ateliers-L-ve-2D-2fe62e074caf49c7a1ea4179c144b8b4>
+
+----
+
 ## Autres détails
 
 Ces ressources seront placées sous une licence libre, qui reste à choisir (MIT, CC-0 ?).
