@@ -1,10 +1,12 @@
-# TP 1 : Affichage avec Löve (à raccourcir)
+# Atelier 1 : Affichage avec Löve
 
 La première chose que nous allons apprendre à faire est d’afficher des choses (textes, graphismes) à l’écran, car un jeu vidéo est presque tout le temps basé sur un affichage.
 
 ## La fonction love.draw()
 
 Toutes les instructions pour afficher quelque chose à l’écran (image, texte, etc.) doivent apparaître dans cette fonction.
+
+Pour créer une fenêtre, crée un dossier de ton choix (par exemple Atelier_Affichage/) puis dans ce dossier un fichier main.lua avec un éditeur de texte.
 
 La fonction love.draw() se présente comme suit :
 
@@ -15,8 +17,6 @@ function love.draw()
 
 end
 ```
-
-Dans un éditeur de texte (VS code, Notepad, etc.)
 
 Si tu lances ce programme (dans le gestionnaire de fichier : glisser/déposer le répertoire sur un raccourci vers Löve, soit dans un terminal en tapant : “> love <nom_du_dossier>” , tu devrais voir apparaître une fenêtre, avec une dimension par défaut (800x600) et le titre “Untitled” (nous verrons plus tard comment changer ces paramètres).
 
@@ -90,7 +90,7 @@ Attention ! une fois que tu as modifié la couleur d’affichage, tout ce qui su
 On peut aussi expérimenter la modification de la couleur de fond avec :
 
 ```lua
-love.graphics.setBackground(valeurR, valeurV, valeurB)
+love.graphics.setBackgroundColor(valeurR, valeurV, valeurB)
 ```
 
 Avant d’aller plus loin voyons comment deux concepts très importants en programmation peuvent nous faciliter la vie : les variables et les boucles
@@ -269,4 +269,4 @@ Bien sûr ça ne bouge pas encore, mais c’est un début ! On pourra réutilise
 
 Déplacer ces choses qu’on affiche (texte, formes, images…) grâce à la fonction love.update() :
 
-[Atelier 2 : Déplacer une image](Atelier%202%20De%CC%81placer%20une%20image%20599a6b35bf7942a1af96e65675a4f5f0.md)
+[Atelier 2 : Déplacer une image](Atelier 2 : Déplacer une image.md)

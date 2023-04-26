@@ -70,7 +70,7 @@ end
 
 Il est très important pour comprendre cet algorithme de bien avoir à l’esprit le système de coordonnées de la fenêtre de jeu. L’origine, le point de coordonnées (0, 0), est le coin haut gauche de la fenêtre, et l’axe des x va de gauche à droite (x = 0 correspond au bord gauche, et les x augmentent quand on va vers la droite), mais l’axe des y est inversé par rapport à la convention ordinaire : y = 0 correspond au bord du haut, et les y augmentent quand on va vers le bas de la fenêtre.
 
-![Fenetre1_collisions.png](Atelier%204%20Ge%CC%81rer%20les%20collisions%2002f3d05276bb484ebc01c37ff6502402/Fenetre1_collisions.png)
+![Fenetre1_collisions.png](img/Fenetre1_collisions.png)
 
 Pour faire rebondir sur les autres bords de la fenêtre on va procéder exactement de la même manière : inverser `balle.vx` quand la balle atteint le bord droit ou le bord gauche, et inverser `balle.vy` quand la balle atteint le haut de la fenêtre.
 
@@ -92,7 +92,7 @@ if balle.y + balle.r >= HAUTEUR_FENETRE then
   end
 ```
 
-![Balle_collisions.png](Atelier%204%20Ge%CC%81rer%20les%20collisions%2002f3d05276bb484ebc01c37ff6502402/Balle_collisions.png)
+![Balle_collisions.png](img/Balle_collisions.png)
 
 Modifie toutes les conditions de ton programme pour avoir un rebond dès que le bord de la balle touche les bords de la fenêtre. Attention, il y a une différence quand la balle touche les bords gauche et haut, et les bords bas et droite… fait un dessin au préalable pour bien déterminer la condition à tester.
 

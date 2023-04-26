@@ -65,7 +65,7 @@ end
 
 → l’appui sur “échap” (”escape”) fait quitter le jeu
 
-→ on peut aussi programmer une capture d’écran à déclencher en appuyant sur une touche, regarder dans la section [Bouts de code](Bouts%20de%20code%200cadecf62ae441ed8e2e27232700e407.md) car ça fait intervenir des concepts plus compliqué (Lua n’est pas très pratique pour manipuler des fichiers dans le système).
+→ on peut aussi programmer une capture d’écran à déclencher en appuyant sur une touche, regarder dans la section [Bouts de code](Bouts%20de%20code.md) car ça fait intervenir des concepts plus compliqué (Lua n’est pas très pratique pour manipuler des fichiers dans le système).
 
 ### Appui en continu
 
@@ -360,4 +360,4 @@ Que fais la fonction math.abs() ? Comment aurais-tu écrit les conditions de tes
 
 Maintenant qu’on sait contrôler des éléments de notre programme, il reste à gérer les collisions entre ces éléments ! C’est primordial dans un jeu vidéo. Nous disposons déjà de tous les outils ou méthode pour le faire. Après ça, on pourra d’ores et déjà programmer nos premiers jeux vidéos !
 
-[Atelier 4 : Gérer les collisions](Atelier%204%20Ge%CC%81rer%20les%20collisions%2002f3d05276bb484ebc01c37ff6502402.md)
+[Atelier 4 : Gérer les collisions](Atelier%204%20Ge%CC%81rer%20les%20collisions.md)
