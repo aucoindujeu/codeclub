@@ -1,1 +1,0 @@
-# Atelier 6 : Animation des sprites

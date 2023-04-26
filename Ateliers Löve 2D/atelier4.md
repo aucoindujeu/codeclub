@@ -103,3 +103,5 @@ Modifie toutes les conditions de ton programme pour avoir un rebond dès que le 
 ## Technique des « bounding boxes »
 
 ## Technique des « hot spots »
+
+[Atelier 5 : Sons](./atelier5.md)

@@ -181,4 +181,4 @@ Indice : tu peux connaître les dimensions de la fenêtre avec les fonctions lov
 
 Comme on l’a vu sur le dernier défi, en matière de jeux vidéo, si on déplace des éléments, on a envie de gérer leurs interactions. Mais avant ça, c’est peut-être plus fun d’interagir en tant que joueur-euse avec ces éléments ! Voyons donc d’abord comment on peut contrôler ce qu’il se passe dans notre programme avec le clavier, la souris ou une manette, de manière interactive !
 
-[Atelier 3 : Contrôles](Atelier%203%20Contro%CC%82les.md)
+[Atelier 3 : Contrôles](./atelier3.md)

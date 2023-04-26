@@ -1,12 +1,10 @@
-# Atelier 1 : Affichage avec Löve
+# TP 1 : Affichage avec Löve (à raccourcir)
 
 La première chose que nous allons apprendre à faire est d’afficher des choses (textes, graphismes) à l’écran, car un jeu vidéo est presque tout le temps basé sur un affichage.
 
 ## La fonction love.draw()
 
 Toutes les instructions pour afficher quelque chose à l’écran (image, texte, etc.) doivent apparaître dans cette fonction.
-
-Pour créer une fenêtre, crée un dossier de ton choix (par exemple Atelier_Affichage/) puis dans ce dossier un fichier main.lua avec un éditeur de texte.
 
 La fonction love.draw() se présente comme suit :
 
@@ -17,6 +15,8 @@ function love.draw()
 
 end
 ```
+
+Dans un éditeur de texte (VS code, Notepad, etc.)
 
 Si tu lances ce programme (dans le gestionnaire de fichier : glisser/déposer le répertoire sur un raccourci vers Löve, soit dans un terminal en tapant : “> love <nom_du_dossier>” , tu devrais voir apparaître une fenêtre, avec une dimension par défaut (800x600) et le titre “Untitled” (nous verrons plus tard comment changer ces paramètres).
 
@@ -30,9 +30,7 @@ Modifie le fichier main.lua pour avoir le code suivant :
 
 ```lua
 function love.draw()
-
   love.graphics.print("Texte à afficher.")
-
 end
 ```
 
@@ -42,9 +40,7 @@ Maintenant essaye :
 
 ```lua
 function love.draw()
-
   love.graphics.print("Texte à afficher.", 10, 20)
-
 end
 ```
 
@@ -90,7 +86,7 @@ Attention ! une fois que tu as modifié la couleur d’affichage, tout ce qui su
 On peut aussi expérimenter la modification de la couleur de fond avec :
 
 ```lua
-love.graphics.setBackgroundColor(valeurR, valeurV, valeurB)
+love.graphics.setBackground(valeurR, valeurV, valeurB)
 ```
 
 Avant d’aller plus loin voyons comment deux concepts très importants en programmation peuvent nous faciliter la vie : les variables et les boucles
@@ -170,8 +166,6 @@ Essaye ce code en remplaçant <nom du fichier> par le nom du fichier de la fonte
 
 ```lua
 function love.draw()
-  
-
   font = love.graphics.newFont("Fontes/<nom du ficher>")
   love.graphics.setFont(font)
   love.graphics.print("Texte avec la fonte Press Start 2P.", 10, 10)
@@ -179,7 +173,6 @@ function love.draw()
   font = love.graphics.newFont("Fontes/<nom du ficher>", 30)
   love.graphics.setFont(font)
   love.graphics.print("Texte avec la fonte Press Start 2P.", 10, 100)
-
 end
 ```
 
@@ -244,7 +237,7 @@ Là ça devient intéressant !
 
 Avec tout ce qu’on a vu avant tu devrais pouvoir t’en sortir seul-e avec quelques indices.
 
-La marche à suivre : 
+La marche à suivre :
 
 - télécharge une image (assez petite pour rentrer dans la fenêtre)
 - charge l’image avec la fonction .newImage() → quel est le paramètre à ton avis ? faut-il utiliser une variable sur cette ligne ?
@@ -263,10 +256,10 @@ Note : ajoute les nouveaux paramètres l’un après l’autre ! Les deux dernie
 - Affiche des images avec différentes orientation, grosseur, plusieurs fois… (utiliser les variables et les boucles)
 - Crée un écran (minimaliste) de jeu : par exemple une zone avec les informations pour le joueur : le nombre de vie, la santé, les armes ou la magie (ça peut être des petites icônes, du texte, des jauges…), etc., et une zone de jeu, avec une image de fond, et des personnages par dessus. Tu peux délimiter les zones avec des formes simples (des traits de couleurs, etc.)
 
-Bien sûr ça ne bouge pas encore, mais c’est un début ! On pourra réutiliser ces éléments dans la suite. 
+Bien sûr ça ne bouge pas encore, mais c’est un début ! On pourra réutiliser ces éléments dans la suite.
 
 ## Prochaine étape
 
 Déplacer ces choses qu’on affiche (texte, formes, images…) grâce à la fonction love.update() :
 
-[Atelier 2 : Déplacer une image](Atelier 2 : Déplacer une image.md)
+[Atelier 2 : Déplacer une image](./atelier2.md)

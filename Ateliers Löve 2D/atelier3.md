@@ -360,4 +360,4 @@ Que fais la fonction math.abs() ? Comment aurais-tu écrit les conditions de tes
 
 Maintenant qu’on sait contrôler des éléments de notre programme, il reste à gérer les collisions entre ces éléments ! C’est primordial dans un jeu vidéo. Nous disposons déjà de tous les outils ou méthode pour le faire. Après ça, on pourra d’ores et déjà programmer nos premiers jeux vidéos !
 
-[Atelier 4 : Gérer les collisions](Atelier%204%20Ge%CC%81rer%20les%20collisions.md)
+[Atelier 4 : Gérer les collisions](./atelier4.md)
