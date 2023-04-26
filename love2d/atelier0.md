@@ -79,32 +79,21 @@ Pour chaque atelier, tu devras créer un programme et l’exécuter avec Löve2D
 
 ![Love_gamelaunched.png](img/Love_gamelaunched.png)
 
-Voilà, tu es prêt-e pour commencer les ateliers ! 
+Voilà, tu es prêt-e pour commencer les ateliers !
 
 ## Fiches d’ateliers
 
-[Atelier 1 : Affichage avec Löve](./atelier1.md)
-
-[TP 1 : Affichage avec Löve (à raccourcir)](./tp1.md
-
-[Atelier 2 : Déplacer une image](./atelier2.md)
-
-[Atelier 3 : Contrôles](./atelier3.md)
-
-[Atelier 4 : Gérer les collisions](./atelier4.md)
-
-[Atelier 5 : Sons](./atelier5.md)
-
-[Atelier 6 : Animation des sprites](./atelier6.md)
-
-[Atelier 7 : TileMap](./atelier7.md)
-
-[Bouts de code](./boutsdecodes.md)
+* [Atelier 1 : Affichage avec Löve](./atelier1.md)
+* [TP 1 : Affichage avec Löve (à raccourcir)](./tp1.md)
+* [Atelier 2 : Déplacer une image](./atelier2.md)
+* [Atelier 3 : Contrôles](./atelier3.md)
+* [Atelier 4 : Gérer les collisions](./atelier4.md)
+* [Atelier 5 : Sons](./atelier5.md)
+* [Atelier 6 : Animation des sprites](./atelier6.md)
+* [Atelier 7 : TileMap](./atelier7.md)
+* [Bouts de code](./boutsdecodes.md)
 
 ## Ressources
 
-Cheatsheet Lua : 
-
-[Lua cheatsheet](https://devhints.io/lua)
-
-Cheatsheet Löve : À FAIRE
+* Cheatsheet Lua : [Lua cheatsheet](https://devhints.io/lua)
+* Cheatsheet Löve : À FAIRE
