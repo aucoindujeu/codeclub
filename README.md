@@ -26,13 +26,14 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 
 ## Löve2D
 
-* [Atelier 1 : Affichage avec Löve](./Ateliers%20L%C3%B6ve%202D/atelier1.md)
-* [Atelier 2 : Déplacer une image](./Ateliers%20L%C3%B6ve%202D/atelier2.md)
-* [Atelier 3 : Contrôles](./Ateliers%20L%C3%B6ve%202D/atelier3.md)
-* [Atelier 4 : Gérer les collisions](Ateliers%20L%C3%B6ve%202D/atelier4.md)
-* [Atelier 5 : Sons](./Ateliers%20L%C3%B6ve%202D/atelier5.md)
-* [Atelier 6 : Animation des sprites](./Ateliers%20L%C3%B6ve%202D/atelier6.md)
-* [Atelier 7 : TileMap](./Ateliers%20L%C3%B6ve%202D/atelier7.md)
+* [Atelier 0 : Ca commence ici ☺️!](./love2d/atelier0.md)
+* [Atelier 1 : Affichage avec Löve](./love2d/atelier1.md)
+* [Atelier 2 : Déplacer une image](./love2d/atelier2.md)
+* [Atelier 3 : Contrôles](./love2d/atelier3.md)
+* [Atelier 4 : Gérer les collisions](love2d/atelier4.md)
+* [Atelier 5 : Sons](./love2d/atelier5.md)
+* [Atelier 6 : Animation des sprites](./love2d/atelier6.md)
+* [Atelier 7 : TileMap](./love2d/atelier7.md)
 
 ----
 
