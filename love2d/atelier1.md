@@ -242,20 +242,29 @@ Note : la fonction .setColor() dispose d’un 4e paramètre : alpha ! Expérimen
 
 Là ça devient intéressant !
 
-Avec tout ce qu’on a vu avant tu devrais pouvoir t’en sortir seul-e avec quelques indices.
+Avec tout ce qu’on a vu avant tu devrais pouvoir t’en sortir seul-e avec quelques indices. Tu as juste besoin de deux gonctions pour cela :
+
+```lua
+nom_image = love.graphics.newImage('fichierImage')
+
+love.graphics.draw(nom_image, position_x, position_y)
+```
+
+Je te conseille d'aller regarder la documentation de Love2D.
 
 La marche à suivre : 
 
-- télécharge une image (assez petite pour rentrer dans la fenêtre)
-- charge l’image avec la fonction .newImage() → quel est le paramètre à ton avis ? faut-il utiliser une variable sur cette ligne ?
+- télécharge une image (assez petite pour rentrer dans la fenêtre). En général on privilégie les formats .png pour les sprites et bénéficier de la transparence. Mais on peut très bien utiliser d'autres formats, notamment .jpg pour le fond d'écran.
+- il faut d'anord charger l’image avec la fonction .newImage(). En effet pour afficher une image à l'écran il faut d'abord que l'image soit chargée en mémoire, afin que les données de l'image soient accessibles au programme. → quel est le paramètre à ton avis ? faut-il utiliser une variable sur cette ligne ? 
 - affiche la avec la fonction .draw(<nom_de_l’image>, x, y) → ATTENTION : la fonction draw ici est différente de love.draw() !!!!!!!
 
-Une fois que tu as réussi, voilà la liste complète des paramètres de la fonction .draw() :
+Une fois que tu as réussi, sache que la fonction love.graphics.draw() prend de nombreux paramètres (encore une fois, va voir la doc).
+Voilà la liste complète des paramètres de la fonction .draw() :
 
 ```lua
 love.graphics.draw(img, x, y, r, sx, sy, ox, oy)
 ```
-
+Essaye d'expérimenter pour voir ce que font ces paramètres.
 Note : ajoute les nouveaux paramètres l’un après l’autre ! Les deux derniers ne sont pas faciles à deviner…
 
 ## Défis
