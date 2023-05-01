@@ -11,7 +11,7 @@ va rendre l'animation suivante :
 
 ![Image animée d'un personnage qui marche vers la droite](./pix_atelier6/Animation.gif "Marche animée")
 
-(Ces images ont été générées par un ami pour un jeu que je prépare, grâce au site ...)
+(Ces images ont été générées par un ami pour un jeu que je prépare, [grâce à cet outil en ligne](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/))
  
 Vu que nous savons afficher des images, nous savons donc afficher une animation, il suffit de trouver comment organiser son code et gérer le bon rythme d'affichage.
 
