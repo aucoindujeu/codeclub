@@ -200,8 +200,8 @@ Le résultat n'est pas parfait :
 
 Tu dois être capable d'apporter ces améliorations si tu as bien compris les ateliers [contrôles](./atelier3.md) et [collisions](./atelier4.md).
 
-Enfin on voudrait faire en sorte que le personnage se déplace dans toutes les directions, avec une animation adaptée à chaque fois.
-Mais cela demanderait de disposer de toutes les images de toutes ces animations, et d'adapter la fonction `player.Animate()` pour tout les cas de figures. Cela ferait beaucoup d'images à traiter, et d'adaptation de la fonction d'animation (une par direction)... Il vaut mieux passer à une méthode plus élaborée, mais plus facile à programmer pour faire face à ces différentes situations.
+Enfin on voudrait faire en sorte que le personnage se déplace dans toutes les directions, avec une animation adaptée à chaque fois. Si tu en as le courage, tu peux essayer de le faire : toutes les images nécessaires sont disponibles sur le dépôt git de l'atelier (dans le dossier pix_atelier6).
+Néanmoins cela fait beaucoup d'images à traiter, et demande aussi d'adapter la fonction d'animation en conséquence... Donc tu peux le faire pour t'entraîner, mais je propose de passer à une méthode plus élaborée, moins facile à comprendre, mais plus facile à programmer pour faire face à ces différentes situations.
 
 ## Animation avec les *spritesheets*
 
