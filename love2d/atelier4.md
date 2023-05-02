@@ -98,6 +98,81 @@ Modifie toutes les conditions de ton programme pour avoir un rebond dès que le 
 
 ## Collision entre éléments : détecter si une raquette renvoie une balle
 
+Dans la section précédente nous avons étudié la mise en place de collisions dans un contexte passif, l'interaction d'un élément (la balle) avec son environnement (les bords de la fenêtre). Tout ce qui fait l'intérêt d'un jeu est dans l'interaction : voyons comment gérer les collisions d'un élément avec un autre élément qui lui est contrôlé par le joueur. Par exemple une balle qui rebondit sur une raquette (comme dans Pong, les casses-briques, etc.)
+
+![Capture d'écran du jeu Pong](./img/Pong.png)
+
+
+Créons donc une raquette "façon Pong" dans notre programme. Il s'agit d'un rectangle définit par la position de son sommet haut-gauche, une épaisseur et une longueur. On peut aussi la doter d'une vitesse de déplacement (seulement verticale, vu que c'est la seule direction où elle peut aller)
+
+```lua
+raquette = {}
+raquette.x = LARGEUR_FENETRE - 30
+raquette.y = HAUTEUR_FENETRE/2
+raquette.epaisseur = 10
+raquette.longueur = 50
+raquette.vy = 75
+```
+
+Pour afficher la raquette il suffit d'ajouter dans la fonction `love.draw()`
+
+```lua
+love.graphics.rectangle('fill', raquette.x, raquette.y, raquette.epaisseur, raquette.longueur)
+```
+Et mettenant on veut la faire bouger verticalement lorsque l'on appuie sur les touche "haut" et "bas" du clavier.
+
+Il suffit de rajouter dans la fonction `love.update(dt)` :
+
+```lua
+if love.keyboard.isDown('up') then
+    raquette.y = raquette.y - raquette.vy*dt
+end
+if love.keyboard.isDown('down') then
+    raquette.y = raquette.y + raquette.vy*dt
+end
+```
+
+Pourquoi calcule-t-on `raquette.y - raquette.vy*dt` lorsque l'on veut diriger la raquette vers le haut, et `raquette.y + raquette.vy*dt` lorsque l'on veut diriger la raquette vers le bas ?
+
+On constate que tant que l'on appuie sur les touches "haut" et "bas" la raquette monte ou descend jusqu'à sortir de l'écran. Peux-tu modifier ce code, en fonction de ce que l'on a vu dans la section précédente, afin que la raquette reste bloquée à l'intérieur de la fenêtre ?
+
+Ensuite, on aimerait bienque la balle rebondisse sur la raquette.
+
+Le principe est exactement le même que précédemment, ce sont juste les conditions testées qui changent. Dans le cas d'une collision avec le bord de l'écran, il suffit juste de tester si une des coordonnées de la balle dépasse l'une des dimensions de la fenêtre (hauteur pour la coordonnée y, largeur pour la coordonnée x). 
+
+Ici il faut être plus précis : ce n'est pas un bord entier de la fenêtre dont il s'agit, mais d'une petite portion de l'espace délimité par le bord d'une raquette. Deux conditions doivent être testées simultanément : la coordonnée x de la balle est elle "devant" ou "derrière" la position x de la raquette, et la coordonnée y de la balle est elle comprise dans l'intervalle délimité par les bords hauts et bas de la raquette ?
+
+Le schéma suivant indique quelles sont les variables et les valeurs à considérer pour tester les coordonnées de la balle et savoir si elle a touché le bord de la raquette ou non :
+
+![Schéma qui indique les valeurs à tester pour la collision avec la raquette](./img/Pong_ConditionRebond.png)
+
+Il faut donc remplir trois conditions : 
+
+1. que la coordonnée x de la balle soit supérieur ou égale à la coordonnée x de la raquette
+2. que la coordonnée y de la balle soit supérieure ou égale à la coordonnée y de la raquette (bord du haut)
+3. que la coordonnée y de la balle soit inférieure ou égale à la coordonnée y de la raquette additionnée de la longueur de la raquette (bord du bas)
+
+Voici le bout de code qui permet de tester la collision entre la balle et la raquette :
+
+```lua
+if balle.x >= raquette.x and balle.y >= raquette.y and balle.y <= raquette.y + raquette.longueur then
+    balle.vx = -1 * balle.vx
+end
+```
+Et c'est tout ! 3 lignes suffisent pour rendre le jeu jouable...
+
+Par contre on voit que la balle s'enfonce dans la raquette... toujours la même histoire : on a oublié que la balle avait une épaisseur ! Les coordonnées `balle.x` et `balle.y` concenrent le centre de la balle, or on veut que la balle rebondisse dès que le bord de la balle touche la raquette.
+
+Sauras-tu modifier le code pour que cela soit le cas ? N'hésite pas à refaire un schéma en indiquant les différentes variables pour t'aider.
+
+Cela fait, on peut transformer ce programme en jeu :
+
+- faire un compteur de balle, et le jeu s'arrête dès que le compteur est à zéro (*game over*), et afficher le nombre de balle restante sur l'écran de jeu
+- faire en sorte que dès que la balle touche le bord droit de la fenêtre, elle soit remise en jeu au centre de l'écran, et que le joueur perde une balle (mettre le compteur à jour)
+- créer une variable score, et faire gagner des points à chaque fois que la balle rebondit
+
+On peut aussi imaginer un jeu de Pong semblable à l'original : 2 joueurs, un système de score... arrivé ici tu sais programmer tout cela ! Essaye.
+
 ## Tester si on a cliqué sur un sprite
 
 ## Technique des « bounding boxes »
