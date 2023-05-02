@@ -39,6 +39,7 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 
 * [Un prototype de jeu d'échec à deux joueurs](https://github.com/Naereen/Love-2D-tiny-Chess-game) ;
 * [Une appli bureau/web pour jouer à la variante « PlaneChase » de Magic: The Gathering](https://github.com/Naereen/PlaneChase.lua) ;
+* [Un petit jeu de Casse Briques](https://github.com/Jehadel/Casse-Brique_basic) ;
 
 ----
 
