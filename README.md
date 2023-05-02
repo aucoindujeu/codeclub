@@ -14,7 +14,7 @@ Plus de détails sur <https://www.aucoindujeu05.fr/infos/>.
 
 ## C'est *quand* ?
 
-Pour l'instant, les ateliers sont prévus les mercredis après-midi, 14h à 16h.
+Pour l'instant, les ateliers sont prévus les mercredis après-midi, 17h à 19h.
 
 ## C'est *pour qui* ?
 
@@ -34,6 +34,11 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 * [Atelier 5 : Sons](./love2d/atelier5.md)
 * [Atelier 6 : Animation des sprites](./love2d/atelier6.md)
 * [Atelier 7 : TileMap](./love2d/atelier7.md)
+
+### Exemples de petits projets réalisés au CodeClub en Löve2D
+
+* [Un prototype de jeu d'échec à deux joueurs](https://github.com/Naereen/Love-2D-tiny-Chess-game) ;
+* [Une appli bureau/web pour jouer à la variante « PlaneChase » de Magic: The Gathering](https://github.com/Naereen/PlaneChase.lua) ;
 
 ----
 
