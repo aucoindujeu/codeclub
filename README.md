@@ -45,4 +45,4 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 
 ## Autres détails
 
-Ces ressources seront placées sous une licence libre, qui reste à choisir (MIT, CC-0 ?).
+Ces ressources sont placées sous la [licence MIT](LICENSE).
