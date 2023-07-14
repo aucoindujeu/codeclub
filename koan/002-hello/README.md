@@ -6,6 +6,8 @@ Tu vas devoir créer un fichier qui s'appelle "main.lua" (sans les guillemets). 
         love.graphics.print("bonjour <ton pseudonyme> !")
     end
 
+⚠️⚠️⚠️ Avertissement important : il est interdit de faire un copier-coller ! Et cette règle est valable pour tous les exercices qui suivent.
+
 N'oublie pas de sauvegarder !
 
 Puis tu vas rentrer dans un terminal et tu vas exécuter la commande :
