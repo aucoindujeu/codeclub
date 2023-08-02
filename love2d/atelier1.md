@@ -226,7 +226,7 @@ N’hésite pas à expérimenter des fonctions indiquées à cet endroit.
 Pour certaines primitives, notamment .line() ou .points() ou encore .polygons(), il peut être fastidieux de rentrer les coordonnées dans l’appel de la fonction. On peut se simplifier la vie en créant une variable de type “liste” :
 
 ```lua
-listePoints = {100, 200, 300,400, 10, 400, 5, 10)
+listePoints = {100, 200, 300,400, 10, 400, 5, 10}
 love.graphics.points(listePoints)
 ```
 
