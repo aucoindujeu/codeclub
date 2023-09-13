@@ -175,8 +175,119 @@ On peut aussi imaginer un jeu de Pong semblable à l'original : 2 joueurs, un sy
 
 ## Tester si on a cliqué sur un sprite
 
+Imaginons un autre contexte de jeu pour les collisions, avec un jeu dont l'objectif est de cliquer sur un sprite qui se déplace à l’écran. Lorsque l’on y arrive, le sprite va accélérer.
+
+![Capture d’écran exemple de jeux](./img/Fenetre2_exemple_collisions.png)
+
+Pour l’exercice, on va simplement faire un sprite qui traverse l’écran horizontalement, à une certaine vitesse. À chaque clic gauche sur le sprite, celui-ci accélerera. Essaye de faire ce programme par toi-même ;)
+
+Voici l’image que l’on peut utiliser pour le sprite :
+
+![Sprite mascotte de Love 2D](./img/love2.png)
+
+<details>
+<summary>Tu peux voir une proposition de solution en déroulant (clique sur le petit triangle à gauche) </summary> 
+<br>
+
+1. Tout d’abord on crée une table qui contient toutes les variables qui nous serons utiles : position x et y du sprite, vitesse de déplacement, image, taille de l’image...
+  
+<details>
+<summary style='text-indent:30px'> (Dérouler pour voir le code correspondant)</summary>
+<br>
+
+```lua
+sprite = {}
+sprite.x = 0
+sprite.y = W_HEIGHT / 2
+sprite.vx = 100
+sprite.pix = love.graphics.newImage('love2.png')
+sprite.w_size = sprite.pix:getWidth()
+sprite.h_size = sprite.pix:getHeight()
+```
+
+</details>
+<br>
+
+2. Ensuite on crée un `update()` qui fait défiler le sprite à l’écran : on décale sa position `x` de quelques pixels (le nombre de pixel que l’on ajoute est la vitesse horizontale `vx` du sprite) à chaque frame, et quand il arrive au bord de l’écran, on réinitialise sa position à 0.
+
+<details>
+
+<summary style='text-indent:30px'> (Dérouler pour voir le code correspondant) </summary>
+<br>
+
+```lua
+function love.update(dt)
+
+  sprite.x = sprite.x + sprite.vx * dt
+  if sprite.x > W_WIDTH then
+    sprite.x = 0
+  end
+
+end
+```
+
+</details>
+<br>
+
+3. On procède au test de collision proprement dit : utiliser la fonction `love.mousepressed()` – ne pas hésiter à réviser [le chapitre précédent sur les contrôles](./atelier) - pour récupérer les coordonnées du pointeur, et voir si on peut en déduire que le pointeur était sur l’image du sprite au moment du clic (voir le schéma ci-dessous). 
+
+    ![Shcéma indiquant les coordonnées du sprite et du pointeur](./img/exemple_collisions_distances.png)
+
+<details>
+
+<summary style='text-indent:30px'> (Dérouler pour voir le code correspondant) </summary>
+<br>
+
+```lua
+function love.mousepressed(mouseX, mouseY, button)
+
+  if button == 1 then
+
+    testX = (mouseX > sprite.x) and (mouseX < (sprite.x + sprite.w_size))
+    testY = (mouseY > sprite.y) and (mouseY < (sprite.x + sprite.h_size))
+    
+    if testX and testY then
+      sprite.vx = sprite.vx * 2
+    end
+
+  end
+
+  sprite.x = sprite.x + sprite.vx * dt
+  if sprite.x > W_WIDTH then
+    sprite.x = 0
+  end
+
+end
+```
+
+</details>
+<br>
+
+4. Finalement, gèrer l’affichage.
+
+<details>
+<summary style='text-indent:30px'> (Dérouler pour voir le code correspondant) </summary>
+<br>
+
+```lua
+function love.draw()
+
+  love.graphics.draw(sprite.pix, sprite.x, sprite.y, 0, .5, .5) -- On divise par 2 la taille de l’image, qui est de grande taille
+
+end
+```
+</details>
+
+Et voilà ! Un jeu qui tient en quelques lignes.
+Pour l’améliorer, on peut indiquer un système de score : par exemple afficher à l’écran le nombre de fois où le sprite a été touché, et la vitesse atteinte. Avec tout ce que tu as vu jusqu’ici, tu devrais pour voir écrire le code correspondant facilement.
+
+</details>
+<br>
+
+
 ## Technique des « bounding boxes »
 
 ## Technique des « hot spots »
 
 [Atelier 5 : Sons](./atelier5.md)
+md
