@@ -34,6 +34,7 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 * [Atelier 5 : Sons](./love2d/atelier5.md)
 * [Atelier 6 : Animation des sprites](./love2d/atelier6.md)
 * [Atelier 7 : TileMap](./love2d/atelier7.md)
+* [Ressources](./love2d/Ressources.md) : liens vers de nombreuses ressources (références de livres, cours, tutos, outils pour créer des graphismes, du son, des niveaux, différents *frameworks* et moteurs, etc.)
 
 ### Exemples de petits projets réalisés au CodeClub en Löve2D
 
