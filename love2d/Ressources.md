@@ -12,9 +12,20 @@
 
 - [MicroStudio](https://microstudio.dev/fr/) une plateforme extraordinaire pour apprendre à programmer des jeux vidéos. Tout se fait en ligne, une implémentation très proche du Lua, une série de tuto extrêmement bien faite
 - [GameCodeur](https://www.gamecodeur.fr/), des cours de programmation de jeux vidéos en ligne, payants, mais l’introduction au Lua est gratuite. C’est aussi une [chaîne YouTube](https://www.youtube.com/@gamecodeur) en français avec un contenu varié (tutos, actualités, interviewes)  
+- [https://fairedesjeux.fr](https://fairedesjeux.fr) site collaboratif créé par l’association [Game Dev Alliance](https://gamedevalliance.fr/), on y trouve des explications pour faire son jeu sous [Pico-8](https://www.lexaloffle.com/pico-8.php) (une console virtuelle qui se programme en Lua), en [Ren’Py](https://www.renpy.org/) (moteur pour faire des visual novels), etc. et même pour faire du Pixel Art, et d’autres choses (concepts de base de la programmation, Krita, RPG Maker). Très didactique et adapté aux débutant-e-s complet-e-s
 
 ### Livres et sites en anglais
 - La chaîne YouTube [CS50](https://www.youtube.com/@cs50) compile des cours d’introduction à la *Computer Science* d’Harvard. Il y a plusieurs cycles consacrés à la programmation de jeux vidéos
+
+### Généralités
+
+Faire un jeu vidéo ne se résume pas au code ! Gameplay, concept, financement, etc. Les chaînes YouTube suivantes proposent des dossiers ou des conférences sur tel ou tel aspect de l’industrie du jeu vidéo, avec des interviews de créateurs pro qui reviennent sur le développement de leurs jeux.
+
+- [Game Dev Alliance](https://www.youtube.com/@GameDevAlliance) la chaîne de [l’association](https://gamedevalliance.fr/) du même nom
+
+- [Toulouse Game Dev](https://www.youtube.com/@toulousegamedev/) la chaîne de [l’association](http://toulousegamedev.fr/) du même nom
+
+- [AFJV](https://www.youtube.com/@Afjv-jeuxvideo/) la chaîne de [l’Agence française pour le jeu vidéo](https://www.afjv.com/), on trouve sur son site d’autres dossiers et interview, et des offres d’emploi et de stages
 
 ## Outils / Collection d’*assets*
 
@@ -75,3 +86,9 @@ Dans l’ordre (conseillé) :
 - [Pygame](https://www.pygame.org/) (Python)
 
 - [SDL2](https://www.libsdl.org/) (en C), pour les courageux-ses seulement
+
+## Ressources générales pour la programmation
+
+- [https://adventofcode.com/] un célèbre défi de programmation, tous les ans chaque jour du mois de décembre avant Noël (calendrier de l’avent de la programmation). Concourrez dans le langage que vous désirez, les défis sont accessible aux débutant-e-s les premiers jours. Révisez ou découvrez des algorithmes classiques ! (en anglais).
+
+- [Learn X in Y minutes](https://learnxinyminutes.com/) un site pour découvrir rapidement les fondamentaux de nombreux langages (en anglais pour la plupart, certaines pages sont traduites en français, notamment pour le [Lua](https://learnxinyminutes.com/docs/fr-fr/lua-fr/), le [C#](https://learnxinyminutes.com/docs/fr-fr/csharp-fr/), le [C++](https://learnxinyminutes.com/docs/fr-fr/c++-fr/) et le [Python](https://learnxinyminutes.com/docs/fr-fr/python-fr/), mais aussi pour des outils comme [git](https://learnxinyminutes.com/docs/fr-fr/git-fr/), [bash](https://learnxinyminutes.com/docs/fr-fr/bash-fr/), [make](https://learnxinyminutes.com/docs/fr-fr/make-fr/), [tmux](https://learnxinyminutes.com/docs/fr-fr/tmux-fr/), etc.) 
