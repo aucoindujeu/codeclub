@@ -27,6 +27,8 @@ Faire un jeu vidéo ne se résume pas au code ! Gameplay, concept, financement, 
 
 - [AFJV](https://www.youtube.com/@Afjv-jeuxvideo/) la chaîne de [l’Agence française pour le jeu vidéo](https://www.afjv.com/), on trouve sur son site d’autres dossiers et interview, et des offres d’emploi et de stages
 
+- Les [conférences de l’ADDON](https://www.youtube.com/@Atlangames/videos) sur la chaîne YouTube d’[Atlangames](https://www.atlangames.com/), groupement des professionnel-le-s du jeu vidéo de la région Ouest
+
 ## Outils / Collection d’*assets*
 
 ### Graphismes
@@ -36,6 +38,8 @@ Faire un jeu vidéo ne se résume pas au code ! Gameplay, concept, financement, 
 - [Tiled](https://www.mapeditor.org/download.html) pour générer des niveaux et les *tilemaps* associées (export possible en de nombreux formats, dont Lua).
 
 - [Pyxel Edit](https://www.pyxeledit.com/get.php) (la version gratuite n’est plus supportée, mais toujours disponible)
+
+- [GrafX2](http://pulkomandy.tk/projects/GrafX2) pour les amateur-ice-s du légendaire [Deluxe Paint](https://fr.wikipedia.org/wiki/Deluxe_Paint), on ne fait pas plus rétro !
 
 - [Pixilart](https://www.pixilart.com) outil de *pixel art* en ligne et téléchargeable
 
