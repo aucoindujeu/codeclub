@@ -18,9 +18,9 @@ Pour l'instant, les ateliers sont prévus les mercredis après-midi, 17h à 19h.
 
 ## C'est *pour qui* ?
 
-N'importe quel élève actuellement au collège, intéressé-e par la programmation informatique et qui souhaite en faire un peu plus que ce qui lui est proposé en cours (de maths) au collège.
+N'importe quel-le élève actuellement au collège, intéressé-e par la programmation informatique et qui souhaite en faire un peu plus que ce qui lui est proposé en cours (de maths) au collège.
 
-Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectifs peuvent être le point de départ de l'atelier que l'on mettra en place pour vous.
+Vous n'avez pas besoin d'être des passionné-e-s de jeux vidéo, d'autres objectifs peuvent être le point de départ de l'atelier que l'on mettra en place pour vous.
 
 ----
 
@@ -43,6 +43,14 @@ Vous n'avez pas besoin d'être des passionnés de jeux vidéo, d'autres objectif
 * [Un petit jeu de Casse Briques](https://github.com/Jehadel/Casse-Brique_basic) ;
 
 ----
+
+### Projets vides / squelettes
+
+Peur de la page blanche pour votre projet de jeu ? Nous créons peu à peu des base de jeux minimalistes que vous pourrez étoffer, améliorer ou modifier chez vous ou en atelier. un bon point de départ ! Jetez un œil sur les autres dépôts. Par exemple, nous proposons déjà :
+
+- [une base de platformer](https://github.com/aucoindujeu/projetvide)
+- [une base de shooter](https://github.com/aucoindujeu/MiniShooter_squelette)
+- [un remake](https://github.com/aucoindujeu/AsteroidsRace_squelette) du deuxième jeux d’arcade de l‘histoire (une sorte de frogger)
 
 ## Autres détails
 
