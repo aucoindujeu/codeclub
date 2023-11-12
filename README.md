@@ -44,14 +44,14 @@ Vous n'avez pas besoin d'être des passionné-e-s de jeux vidéo, d'autres objec
 
 ----
 
-### Projets vides / squelettes
+### Bases pour démarrer des projets
 
-Peur de la page blanche pour votre projet de jeu ? Nous créons peu à peu des base de jeux minimalistes que vous pourrez étoffer, améliorer ou modifier chez vous ou en atelier. un bon point de départ ! Jetez un œil sur les autres dépôts. Par exemple, nous proposons déjà :
+Peur de la page blanche pour votre projet de jeu ? Nous créons peu à peu des bases de jeux minimalistes que vous pourrez étoffer, améliorer ou modifier chez vous ou en atelier. un bon point de départ ! Jetez un œil sur les autres dépôts. Par exemple, nous proposons déjà :
 
-- [une base de platformer](https://github.com/aucoindujeu/projetvide)
-- [une base de shooter](https://github.com/aucoindujeu/MiniShooter_squelette)
-- [un remake](https://github.com/aucoindujeu/AsteroidsRace_squelette) du deuxième jeux d’arcade de l‘histoire (une sorte de frogger)
+- [une base de platformer](https://github.com/aucoindujeu/base-bubblebobble)
+- [une base de shooter](https://github.com/aucoindujeu/base-minishooter)
+- [un remake](https://github.com/aucoindujeu/base-asteroidsrace) du deuxième jeux d’arcade de l‘histoire (un ancêtre de Frogger)
 
-## Autres détails
+## Licence
 
-Ces ressources sont placées sous la [licence MIT](LICENSE).
+Ce projet est distribué d'après les termes de la licence [GNU AGPL version 3](./LICENSE.txt). Même si vous n'en avez pas l'obligation, merci de bien vouloir mentionner que le projet a été initialement créé par la ludothèque de Briançon [Au Coin du Jeu](https://www.aucoindujeu05.fr/) ☺️
