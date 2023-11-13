@@ -34,6 +34,7 @@ Vous n'avez pas besoin d'être des passionné-e-s de jeux vidéo, d'autres objec
 * [Atelier 5 : Sons](./love2d/atelier5.md)
 * [Atelier 6 : Animation des sprites](./love2d/atelier6.md)
 * [Atelier 7 : TileMap](./love2d/atelier7.md)
+* [Atelier 8 : Proposer son jeu en ligne](./love2d/atelier8.md)
 * [Ressources](./love2d/Ressources.md) : liens vers de nombreuses ressources (références de livres, cours, tutos, outils pour créer des graphismes, du son, des niveaux, différents *frameworks* et moteurs, etc.)
 
 ### Exemples de petits projets réalisés au CodeClub en Löve2D
@@ -50,7 +51,7 @@ Peur de la page blanche pour votre projet de jeu ? Nous créons peu à peu des b
 
 - [une base de platformer](https://github.com/aucoindujeu/base-bubblebobble)
 - [une base de shooter](https://github.com/aucoindujeu/base-minishooter)
-- [un remake](https://github.com/aucoindujeu/base-asteroidsrace) du deuxième jeux d’arcade de l‘histoire (un ancêtre de Frogger)
+- [un remake](https://github.com/aucoindujeu/base-asteroidsrace) du deuxième jeu d’arcade de l‘histoire (un ancêtre de Frogger)
 
 ## Licence
 
