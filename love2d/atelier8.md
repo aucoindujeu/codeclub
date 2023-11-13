@@ -89,6 +89,24 @@ if love.system.getOS() == "web" then
 end
 ```
 
+De plus, le déploiement en ligne se fera ansi : un serveur chez GitHub lancera `love.js` pour compiler le jeu, il faut donc lui indiquer comment faire avec un `Makefile` et il faut que notre dossier contenante le code de notre jeu obéisse à une structure prédéfinie pour que la commande `make` s‘y retrouve en suivant les instruction du `Makefile`.
+
+Nous adopterons la convention suivante : le code sera placé dans un sous-dossier `src/` du projet, avec le fichier `main.lua` à la racine de ce dossier. Pour plus de clarté il est bon aussi de regrouper les images, sons, librairies, etc. dans de sous-dossier *had hoc* de `src/` : `images`, `sons`, `lib`, etc.
+
+À la racine du dossier contenant le projet, il faut créer le fichier `Makefile` qui contient au moins les lignes suivantes :
+
+```Makefile
+love:
+	mkdir -p dist
+	cd src && zip -r ../dist/AsteroidsRace.love .
+
+js: love
+	love.js -c --title="Asteroids Race" ./dist/AsteroidsRace.love ./dist/js
+
+```
+
+N‘hésitez pas à aller voir comment sont structurés les projets « bases » (par exemple [base-bubleboble](https://aucoindujeu.github.io/base-bubblebobble/) ou [base-asteroidsrace](https://aucoindujeu.github.io/base-asteroidsrace)), et comment sont rédigés leurs `Makefiles`.
+
 ### Configurer une `GitHub Page`
 
 On peut configurer une page web où s’exécutera notre programme. Par défaut son adresse sera de la forme `https://<nom_utilisateur>.github.io/<nom_du_dépôt>`, ainsi, par exemple : [https://aucoindujeu.github.io/base-minishooter/](https://aucoindujeu.github.io/base-minishooter/)

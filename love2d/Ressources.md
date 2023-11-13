@@ -29,6 +29,27 @@ Faire un jeu vidéo ne se résume pas au code ! Gameplay, concept, financement, 
 
 - Les [conférences de l’ADDON](https://www.youtube.com/@Atlangames/videos) sur la chaîne YouTube d’[Atlangames](https://www.atlangames.com/), groupement des professionnel-le-s du jeu vidéo de la région Ouest
 
+## Des Game Jams pour s’entraîner ou s’inspirer
+
+Selon [wikipedia](https://fr.wikipedia.org/wiki/Game_jam), « dans une game jam, les participant-e-s, groupé-e-s en équipes, doivent créer un jeu dans un temps limité2, généralement le temps d'un week-end, sur 24 à 72 heures. » (Ajout de l’écriture non-sexiste par nos soins). En général les game jams prennent l’aspect de compétition (les participant-e-s ou le public vote pour élire les meilleurs jeux) et fixent des thématiques plus ou moins précises (« Lumière et obscurité », « le 13e siècle », etc.). Certains jeux professionnels sont nés lors d’une game jam.
+
+C’est un très bon moyen de s’entraîner, de progresser, et de rencontrer d’autres développeur-se-s. Les game jams peuvent être très locale (à l’échelle d’une ville, d’une école ou d’une entreprise), d’autres sont mondiales. La participation peut se faire à distance.
+
+Quelques game jams notables :
+
+- [Ludum Dare](https://ludumdare.com/), née en 2002, probablement l’une des deux plus importantes game jam (près de 3000 jeux créés lors de la dernière édition)
+
+- [Global Game Jam (GGJ)](https://globalgamejam.org/), née en 2009, sa particularité est de mettre l’emphase sur une participation mondiale (934 sites dans 118 pays pour près de 10 000 jeux créés lors de la dernière édition)
+
+- [GGJ Next](https://ggjnext.org/fr/le-jam/), une initiative née de la GGJ, dédiée aux 12/17 ans, deux semaines pour créer un jeu en équipe, avec un guide d’accompagnement pour l’initiation de la programmation de jeux vidéos
+
+- [LÖVE JAM](https://itch.io/jam/love2d-jam-2023) sur itch.io, une game jam dédiée aux jeux programmés en LÖVE2D. De quoi trouver l’inspiration.
+
+- [JS13K Games](https://js13kgames.com/), game jam dédiée au jeux en Javascript, avec la particularité que les jeux doivent faire moins de 13ko. Très bonne source d’inspiration pour faire des « petits » jeux simples.
+
+- [No Crunch Game Jam](https://nocrunch.strasbourggames.com/) en général les game jam se tiennent sur des temps très limités (48h…) où les participant-e-s programme non-stop, sans dormir, etc. (principe du « crunch »). Cette petite game jam organisée à Strasbourg prend le contrepied en fixant des horaires de bureau pour la réalisation des jeux :)
+
+
 ## Outils / Collection d’*assets*
 
 ### Graphismes
@@ -96,3 +117,5 @@ Dans l’ordre (conseillé) :
 - [https://adventofcode.com/] un célèbre défi de programmation, tous les ans chaque jour du mois de décembre avant Noël (calendrier de l’avent de la programmation). Concourrez dans le langage que vous désirez, les défis sont accessible aux débutant-e-s les premiers jours. Révisez ou découvrez des algorithmes classiques ! (en anglais).
 
 - [Learn X in Y minutes](https://learnxinyminutes.com/) un site pour découvrir rapidement les fondamentaux de nombreux langages (en anglais pour la plupart, certaines pages sont traduites en français, notamment pour le [Lua](https://learnxinyminutes.com/docs/fr-fr/lua-fr/), le [C#](https://learnxinyminutes.com/docs/fr-fr/csharp-fr/), le [C++](https://learnxinyminutes.com/docs/fr-fr/c++-fr/) et le [Python](https://learnxinyminutes.com/docs/fr-fr/python-fr/), mais aussi pour des outils comme [git](https://learnxinyminutes.com/docs/fr-fr/git-fr/), [bash](https://learnxinyminutes.com/docs/fr-fr/bash-fr/), [make](https://learnxinyminutes.com/docs/fr-fr/make-fr/), [tmux](https://learnxinyminutes.com/docs/fr-fr/tmux-fr/), etc.) 
+
+- [Zeal](https://zealdocs.org/), disponible sur toutes les plateformes, est un outil très utile : il permet de télécharger et de consulter en local les docs des langages et des outils les plus courants, dont Lua (et Unity). 
