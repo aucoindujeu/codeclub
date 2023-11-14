@@ -70,6 +70,8 @@ Quelques game jams notables :
 
 ### Sons
 
+- [ChipTone](https://sfbgames.itch.io/chiptone) inspiré par [sfxr](http://www.drpetter.se/project_sfxr.html) et consorts, utilisable en ligne sur sa page Itch.io et téléchargeable à prix libre, probablement le plus complet
+
 - [rFXGen](https://github.com/raysan5/rfxgen), basé sur [sfxr](http://www.drpetter.se/project_sfxr.html) par l’auteur de Raylib, un synthétiseur qui permet de créer des sons typiques « 8-bits ». L’appli est aussi disponible [en ligne](https://raylibtech.itch.io/rfxgen) (web-assembly)
 
 - [sfxr](http://www.drpetter.se/project_sfxr.html) par DrPetter, créé dans le cadre de la célèbre GameJam [Ludum Dare](https://ludumdare.com/), pour faciliter la création rapide de sons pour les jeux rétro
