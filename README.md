@@ -5,22 +5,27 @@ Ce dépôt `git` héberge les ressources utilisées pour le Code Club du CimeLab
 ## C'est *quoi* ?
 
 Un *Code Club* est un club d'initiation à la programmation.
-Nous, quelques bénévoles, vous (élèves de Collège à Briançon ou aux alentours) proposerons des ateliers d'apprentissage de la programmation, basé sur le développement de petits jeux vidéo, ou de n'importe quel objectif qui vous tient à coeur.
+Nous, quelques bénévoles, vous (élèves de collège ou lycée à Briançon ou aux alentours) proposerons des ateliers d'apprentissage de la programmation, basé sur le développement de petits jeux vidéo, ou de n'importe quel objectif qui vous tient à coeur.
 
 ## C'est *où* ?
 
-Mi-chaussée, entre le Théâtre et le Lycée, dans le grand bâtiment à côté de la gare routière.
-Plus de détails sur <https://www.aucoindujeu05.fr/infos/>.
+Les ateliers ont lieu au Lycée d'Altitude de Briançon. Plus de détails sur <https://www.aucoindujeu05.fr/infos/>.
 
 ## C'est *quand* ?
 
-Pour l'instant, les ateliers sont prévus les mercredis après-midi, 17h à 19h.
+Pour l'instant, les ateliers sont prévus les lundis après-midi, de 17h à 19h.
 
 ## C'est *pour qui* ?
 
-N'importe quel-le élève actuellement au collège, intéressé-e par la programmation informatique et qui souhaite en faire un peu plus que ce qui lui est proposé en cours (de maths) au collège.
+N'importe quel-le élève actuellement au collège ou au lycée, intéressé-e par la programmation informatique et qui souhaite en faire un peu plus que ce qui lui est proposé en cours.
 
 Vous n'avez pas besoin d'être des passionné-e-s de jeux vidéo, d'autres objectifs peuvent être le point de départ de l'atelier que l'on mettra en place pour vous.
+
+----
+
+## Pygame
+
+* [Projet 1 : le jeu de la vie de Conway](./pygame/gameoflife/README.md)
 
 ----
 
