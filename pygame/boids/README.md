@@ -28,7 +28,7 @@ Alors qu’on pourrait croire que contrôler le mouvement de milliers d’agents
 
 - **séparation** : deux boids ne peuvent pas être au même endroit au même moment
 - **cohésion** : les boids vont avoir tendance à se rapprocher pour former un groupe
-- **alignement** : les boids volent dans la même direction et à la même vitesse pour rester groupé
+- **alignement** : les boids volent dans la même direction et à la même vitesse pour rester groupés
 
 De ces trois règles vont *émerger* ces déplacements en nuées très fluides.
 
@@ -47,7 +47,7 @@ On peut conceptualiser le problème également en imaginant que chaque boid se d
 - Un boid va ajuster sa vitesse à la moyenne des vitesses des boids autour de lui (force d’alignement)
 - Un boid va garder ses distances avec les boids qui sont « trop proches » (force de répulsion)
 
-Pour simplifier, on  va représenter dans le schéma suivant les deux dernières  forces (et qui en fait sont suffisantes pour obtenir un résultat satisfaisant). En ne considérant donc que les forces de répulsion et d’alignement, voici les vitesses et les forces qui s’appliquent à un boid donné (il faut imaginer la même chose pour tous les autres boids) :
+Pour simplifier, on  va représenter dans le schéma suivant les deux dernières forces (et qui en fait sont suffisantes pour obtenir un résultat satisfaisant). En ne considérant donc que les forces de répulsion et d’alignement, voici les vitesses et les forces qui s’appliquent à un boid donné (il faut imaginer la même chose pour tous les autres boids) :
 
 ![Schéma des forces qui s’appliquent à un boid](./images/Boids-forces.png)
 
@@ -67,7 +67,7 @@ On code tout ça ?
 
 Comment on va s‘y prendre :
 
-* on va d’abord créer une classe ``` Boid()```. Cette classe va faire peut de choses pour le moment : stocker les attributs des boids (position x, y et vitesse avec les deux composantes Vx, Vy), updater la position du boid (en ajoutant vx à x et vy à y) pour le faire avancer, afficher le boid, orienter le boid dans la direction selon laquelle il avance 
+* on va d’abord créer une classe ```Boid()```. Cette classe va faire peu de choses pour le moment : stocker les attributs des boids (position x, y et vitesse avec les deux composantes Vx, Vy), updater la position du boid (en ajoutant vx à x et vy à y) pour le faire avancer, afficher le boid, orienter le boid dans la direction selon laquelle il avance 
 * on va ensuite dans un premier temps modifier la méthode qui update la position du boid en intégrant une  force qui maintien le boid  au sein de la fenêtre (centrage/centering), cette force va modifier la vitesse du boid, on aura donc aussi une méthode qui update la vitesse des boids
 * on veut un essaim de boids : on va créer une liste de boids et tous les afficher et updater leur position
 * l’étape suivante consistera à les faire interagir : on va créer un rayon de vision et une zone de répulsion propre à chaque boid, et une méthode qui calcule la force de répulsion qui s’applique à chaque boid. Cette méthode, comme les suivantes, aura besoin de la liste des autres boids pour calculer cette force. Comme toute les autres forces celle-ci  va modifier les vecteurs vitesses (update)
@@ -106,11 +106,11 @@ class Boid():
 
 Ce modèle va faire intervenir différents paramètres (rayons de la zone d’attraction et de répulsion des boids, nombre de boids, vitesse maximum des boids, etc.) que nous allons stocker comme des variables de classe. Nous les rajouterons au fur et à mesure, ne les oubliez pas !
 
-Ci-dessous un guide pas à pas plus détaillé. Un exemple d’implémentation est consultable [ici]() dans le cas où vous bloquez, mais efforcez-vous d’écrire une version « à votre manière ». Allez-y pas à pas et vérifiez que chaque étape fonctionne bien avant de passer à la suivante, et n’hésitez pas à solliciter un animateur. De plus, ne cherchez pas à optimiser le code ou la performance tout de suite, faites d’abord quelque chose qui marche, vous verrez ensuite comment  optimiser.
+Ci-dessous un guide pas à pas plus détaillé. Un exemple d’implémentation est consultable [ici](./pgz-boids.py) dans le cas où vous bloquez, mais efforcez-vous d’écrire une version « à votre manière ». Allez-y pas à pas et vérifiez que chaque étape fonctionne bien avant de passer à la suivante, et n’hésitez pas à solliciter un animateur. De plus, ne cherchez pas à optimiser le code ou la performance tout de suite, faites d’abord quelque chose qui marche, vous verrez ensuite comment  optimiser.
 
 ### Étape 1 : Créer la classe Boid(), et afficher et faire avancer un boid
 
-Vous pouvez récupérer [ici]() l’image d’un boid, mais vous pouvez utiliser tout sprite qui vous plaît (attention, pas trop gros, on va en afficher plusieurs dizaine dans la fenêtre), un simple triangle suffit.
+Vous pouvez récupérer [ici](./images/boid.png) l’image d’un boid, mais vous pouvez utiliser tout sprite qui vous plaît (attention, pas trop gros, on va en afficher plusieurs dizaine dans la fenêtre), un simple triangle suffit.
 
 1. Importer les bibliothèques ```pygamezero``` , ```pygame``` (on aura besoin de quelques fonctions de pygame pour manipuler les images), ```math``` (on en aura aussi besoin pour calculer des angles de rotation pour les images, les distances…) et enfin ```random``` (car on positionnera les boids aléatoirement dans la fenêtre au départ)
 
