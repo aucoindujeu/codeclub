@@ -217,7 +217,7 @@ On va résoudre le problème avec de simples soustractions ! Par exemple dans le
 
 ### Étape 5 : Force de cohésion
 
-On va aller plus vite pour ces dernières étapes, il ne s’agit que de répéter ce que nous avons fait pour la répulsion, mais avec des formules différentes. Ici le but est de faire en sorte que chaque boid soit attiré par le autres boids qu’il détecte dans son « champ de vision » (zone d’attraction). On va simplement calculer une force qui pointe vers le *barycentre* de la position de tous les autres boids qui se trouvent dans la zone d’attraction.
+On va aller plus vite pour ces dernières étapes, il ne s’agit que de répéter ce que nous avons fait pour la répulsion, mais avec des formules différentes. Ici le but est de faire en sorte que chaque boid soit attiré par les autres boids qu’il détecte dans son « champ de vision » (zone d’attraction). On va simplement calculer une force qui pointe vers le *barycentre* de la position de tous les autres boids qui se trouvent dans la zone d’attraction.
 
 21. Créer deux variable de classe : le rayon de la zone d’attraction / champ visuel ```Boid.v_range``` (*visual range*), plus grand que la zone de répulsion bien sûr, et le coefficient correspondant à la cohésion ```Boid.COHESION```
 22. Créer une méthode ```.cohesion_force()``` qui prend aussi en argument la liste des boids, et qui retournera un tuple contenant les deux composantes de la force de cohésion
@@ -251,7 +251,7 @@ On peut améliorer le code donné en exemple de différentes manières. Peut-êt
 
 * plutôt que réaliser nos calculs composante par composante, – et même pour certains calculs, boid par boid –, on pourrait utiliser une bibliothèque comme [NumPy](https://numpy.org/) qui par ses méthodes de *vectorisation* pourrait faire l’économie de nombreuses boucles et répétitions dans le code, ce qui est toujours relativement coûteux en performance. Mais dans ce cas, cela demandera de modifier plus profondément le code (utiliser des vecteurs pour les composantes, remplacer certaines méthodes des bibliothèques standards par celles de NumPy).
 
-* Tous les paramètres et le vecteurs vitesses sont fixés sans faire appel au *delta time*. Cela signifie que d’une machine à l’autre, selon leur puissance et vitesse de calcul, les boids n’iront pas à la même vitesse d’affichage. Le *delta time * permettrait de contrôler cela. Nous feront sûrement un atelier sur le sujet.
+* Tous les paramètres et le vecteurs vitesses sont fixés sans faire appel au *delta time*. Cela signifie que d’une machine à l’autre, selon leur puissance et vitesse de calcul, les boids n’iront pas à la même vitesse d’affichage. Le *delta time* permettrait de contrôler cela. Nous feront sûrement un atelier sur le sujet.
 
 ### Ajouter d’autres comportements
 
