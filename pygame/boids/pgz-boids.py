@@ -11,15 +11,14 @@ HEIGHT = 600
 
 # on va avoir besoin de calculer la distance euclidienne
 def distance(x1: float, y1: float, x2: float, y2: float) -> float:
+    
     return math.sqrt((x2-x1)**2 + (y2-y1)**2)
 
 
-# Coonstantes - paramètres des différentes forces dans la simulation
 class Boid():
 
     # Variables de classe : ces valeurs seronts partagées 
     # par toutes les instances de la classe
-
     n_boids = 80 # nombre total de boids
     w_limit = 40 # distance au bord de la fenêtre
     v_range = 60 # champ visuel / rayon zone d’attraction des boids
@@ -32,13 +31,15 @@ class Boid():
     COHESION = 0.00001 
     CENTERING = 0.9
 
-
     boid_pix = pygame.image.load('images/boid.png')
+
     
     def __init__(self, position: tuple, speed: tuple) -> None:
+        
         self.x, self.y = position
         self.vx, self.vy = speed
 
+    
     def centering_force(self) -> tuple:
         # Cette force ne fait pas vraiment partie du modèle 
         # elle sert surtout à empêcher les boids de sortir
@@ -143,12 +144,15 @@ class Boid():
         if abs(self.vy) > Boid.max_speed:
             self.vy = self.vy/abs(self.vy) * Boid.max_speed
 
+    
     def position_update(self) -> None:
+        
         self.x += self.vx
         self.y += self.vy
 
 
     def draw(self) -> None:
+        
         rotated_boid = pygame.transform.rotate(self.boid_pix, -math.degrees(math.atan2(self.vy, self.vx)))
         screen.blit(rotated_boid, (self.x, self.y))
 
@@ -174,10 +178,12 @@ def update():
     for b in BOIDS:
         b.speed_update(BOIDS)
         b.position_update()
+        
 #
 # AFFICHAGE
 #
 def draw():
+    
     screen.fill((0, 0, 0))
     for b in BOIDS:
         b.draw()
