@@ -106,7 +106,7 @@ class Boid():
 
 Ce modèle va faire intervenir différents paramètres (rayons de la zone d’attraction et de répulsion des boids, nombre de boids, vitesse maximum des boids, etc.) que nous allons stocker comme des variables de classe. Nous les rajouterons au fur et à mesure, ne les oubliez pas !
 
-Ci-dessous un guide pas à pas plus détaillé. Un exemple d’implémentation est consultable [ici](./pgz-boids.py) dans le cas où vous bloquez, mais efforcez-vous d’écrire une version « à votre manière ». Allez-y pas à pas et vérifiez que chaque étape fonctionne bien avant de passer à la suivante, et n’hésitez pas à solliciter un animateur. De plus, ne cherchez pas à optimiser le code ou la performance tout de suite, faites d’abord quelque chose qui marche, vous verrez ensuite comment  optimiser.
+Ci-dessous un guide pas à pas plus détaillé. Un exemple d’implémentation est consultable [ici](./boids.py) dans le cas où vous bloquez, mais efforcez-vous d’écrire une version « à votre manière ». Allez-y pas à pas et vérifiez que chaque étape fonctionne bien avant de passer à la suivante, et n’hésitez pas à solliciter un animateur. De plus, ne cherchez pas à optimiser le code ou la performance tout de suite, faites d’abord quelque chose qui marche, vous verrez ensuite comment  optimiser.
 
 ### Étape 1 : Créer la classe Boid(), et afficher et faire avancer un boid
 
