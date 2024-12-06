@@ -1,0 +1,5 @@
+#!/bin/sh
+
+stty -raw # réutilise le mode RAW pour l’interception des signaux et autres
+stty echo # remise en place de l’echo
+stty onlcr # remise en place du retour chariot
