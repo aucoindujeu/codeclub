@@ -50,7 +50,7 @@ On peut écrire aussi :
 $ gcc -o monexecutable moncode.c  
 ```
 
-L’option `-o` sert à donner le nom que l’on veut à l’exécutable, sinon il s’appelle `a.out` par défaut.
+L’option `-o` sert à donner le nom que l’on veut à l’exécutable, sinon il sera nommé `a.out` par défaut.
 
 On peut ensuite lancer l’exécutable ainsi :
 
@@ -62,7 +62,7 @@ Note : le terminal refusera – par sécurité – de lancer directement le fich
 
 Dès qu’on utilise des bibliothèques, que notre code est réparti en plusieurs fichiers, et également parce qu’on peut demander beaucoup [d’options](https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Option-Summary.html) de compilation à `gcc`, la ligne de commande pour compiler va être rapidement assez longue à écrire, et comme on compile souvent durant le développement (on va tester notre code souvent), on va chercher à automatiser tout ça. On va donc écrire un script qui va lancer la compilation : le `Makefile`, ce script sera interprété par la commande `make`.
 
-Plus concrétement :
+Plus concrètement :
 
 On va créer un fichier `Makefile` :
 
@@ -70,20 +70,20 @@ On va créer un fichier `Makefile` :
 CFLAGS=-Wall -g
 
 test:
-	gcc helloworld.c -o helloworld 
+	gcc moncode.c -o monexecutable 
 
 clean:
-	rm -f helloworld
+	rm -f monexecutable
 ```
 
-Si on lance la commande `make test` alors le script va produire un fichier exécutable nommé `helloworld`, en exécutant la ligne `gcc…`
+Si on lance la commande `make test` alors le script va produire un fichier exécutable nommé `monexecutable`, en exécutant la ligne `gcc…`
 
-Si on lance la commande `make clean` alors le script va effacer (irrémédiablement) le fichier nommé `helloworld` avec la commande `rm…`.
+Si on lance la commande `make clean` alors le script va effacer (irrémédiablement) le fichier nommé `monexecutable` avec la commande `rm…`.
 
 Vous l’aurez compris, un Makefile permet de préparer/stocker des suites de commandes que l’on pourra appeler lorsque nécessaire par un simple mot clef.
-La première ligne du Makefile sert à préciser des options par défaut. Ici `-Wall` signifie qu’on demande à ce que tous les warnings soient affichés durant la compilation, et `-g` que des informations de débuggages puissent être générées (qui pourront être exploitées par des outils comme `GDB`).
+La première ligne du Makefile sert à préciser des options par défaut du compilateur. Ici `-Wall` signifie qu’on demande à ce que tous les *warnings* soient affichés durant la compilation, et `-g` que des informations de débuggages puissent être générées (qui pourront être exploitées par des outils comme `GDB`).
 
-Les Makefiles peuvent être très longs et très compliqués, avec des pages et des pages de conditions à tester et d’options à choisir en fonction par exemple de la machine sur laquelle le programme est compilé, où alors d’à quelle étape on en est d’un projet. Ces scripts servent à adapter la compilation au contexte. Dans notre cas le Makefile sera beaucoup plus simple, mais déjà bien pratique néanmoins.
+Les Makefiles peuvent être très longs et très compliqués, avec des pages et des pages de conditions à tester et d’options à choisir en fonction par exemple de la machine sur laquelle le programme est compilé, où alors de l’étape à laquelle on en est d’un projet. Ces scripts servent à adapter la compilation au contexte. Dans notre cas le Makefile sera beaucoup plus simple, mais déjà bien pratique néanmoins.
 
 #### La pratique
 
@@ -100,37 +100,37 @@ int main(void) {
 
 Expliquons un peu ce code :
 
-* La première ligne : le `#include` est une instruction pour le préprocesseur. Le préprocesseur intervient avant la compilation : il modifie un peu le programme que l’on a écrit pour rendre sa compilation possible. Par exemple on peut s’en servir pour définir des constantes, ou comme ici indiquer que l’on veut faire appel à la bibliothèque (qu’ici on appelle *header*, d’où l’extention `.h`) pour les entrées/sorties standard (grosso modo dans la console). En effet plus on est de bas niveau, plus il faut expliciter de choses. Ici il faut dire explictement que l’on va écrire des choses dans la console, il faut donc incorporer les bouts de codes qui permettent d’écrire dans la console. En python par exemple c’est inutile, implicitement on part du principe que dans tous les cas on va utiliser les instructions standards pour écrire des choses dans la console. C’est pour ça qu’un « exécutable » Python est bien plus lourd qu’un exécutable issu du C, car ce dernier ne contient que le strict nécessaire.
+* La première ligne : le `#include` est une instruction pour le préprocesseur. Le préprocesseur intervient avant la compilation : il modifie un peu le programme que l’on a écrit pour rendre sa compilation possible. Par exemple on peut s’en servir pour définir des constantes, ou comme ici indiquer que l’on veut faire appel à la bibliothèque (qu’ici on appelle *header*, d’où l’extention `.h`) pour les entrées/sorties standard (grosso modo dans la console). En effet plus on est de bas niveau, plus il faut expliciter de choses. Ici on veut écrire des choses dans la console, il faut donc incorporer les bouts de codes qui permettent d’écrire dans la console. C’est pour ça qu’un exécutable issu du C est assez léger, car il ne contient que le strict nécessaire.
 
-* `int main(void)` : `main()` est la fonction principale de notre programme (un peu comme `__main__` en Python). le `int` devant signifie que cette fonction retournera un entier quand elle sera exécutée. En effet c’est une convention que lorsqu’un programme s’exécute correctement, il retourne la valeur 0. S’il rencontre une erreur durant son exécution, il peut retourner la valeur 1, ou une autre valeur selon l’erreur rencontrée. Le `void` signifie que cette fonction ne prend aucun argument en entrée.
+* `int main(void)` : `main()` est la fonction principale de notre programme (un peu comme `__main__` en Python). Le `int` juste devant signifie que cette fonction retournera un entier quand elle sera exécutée. En effet, d’une part en C il est obligatoire d’expliciter quel type de variable une fonction va retourner, et d’autre part c’est une convention que lorsqu’un programme s’exécute correctement, il retourne la valeur 0. S’il rencontre une erreur durant son exécution, il peut retourner la valeur 1, ou une autre valeur selon l’erreur rencontrée. Le `void` signifie que cette fonction ne prend aucun argument en entrée.
 
-* Les lignes avec les `printf()` et `return` sont assez compréhensible. Notez juste le `;` à la fin : toutes les lignes d’instruction en C finissent par un point-virgule. Oubliez-le et le compilateur va vous insulter (ce qui arrivera souvent au début… et même plus tard). Le `return 0;` est là car comme nous l’avons dit quand un programme se termine correctemnet (=sans erreur), il retourne la valeur 0 : ici on est à la fin du (très court) programme, si on en est là c’est qu’il n‘y a pas eu d’erreur avant, donc on peut retourner la valeur 0. Plutôt que 0, on peut retourner si on inclut la bibliothèque `stdlib.h` la constante `EXIT_SUCCESS` qui prendra automatiquement la valeur désirée pour le système. Modifiez le programme pour essayer.
+* Les lignes avec les `printf()` et `return` sont assez compréhensibles. Notez juste le `;` à la fin : toutes les lignes d’instruction en C finissent par un point-virgule. Oubliez-le et le compilateur va vous insulter (ce qui arrivera souvent au début… et même plus tard). Le `return 0;` indiquera comme nous l’avons dit précédemment qu’il s’est terminé correctement (=sans erreur). En effet, on est arrivé à la fin du (très court) programme, et donc si on en est là c’est qu’il n‘y a pas eu d’erreur avant, donc on peut retourner la valeur 0. Plutôt que 0, on peut retourner si on inclut la bibliothèque `stdlib.h` la constante `EXIT_SUCCESS` qui prendra automatiquement la valeur désirée pour le système. Modifiez le programme pour essayer.
 
 * On note aussi les `{}` : tout ce qui est entre accolades forme un *bloc*. En Python on utilise l’indentation pour délimiter les blocs, en C on utilise les accolades. Elles ne sont pas suivies d’un point-virgule.
 
-2. Maintenant que vous avez votre fichier de code, créez un Makefile qui permet de le compiler. Puis lancer l’exécutable pour tester.
+2. Maintenant que vous avez votre fichier de code, créez un `Makefile` qui permet de le compiler. Puis lancer l’exécutable pour tester.
 
-3. Créez un bloc `test` dans le Makefile qui compilera le fichier (vous pouvez pour cela faire référence à une autre section dans le Makefile), puis le lancera. 
+3. Créez un bloc `test` dans le `Makefile` qui compilera le fichier (vous pouvez pour cela faire référence à une autre section dans le `Makefile`), puis le lancera. 
 
 4. Essayez de compiler plusieurs fois votre programme. Créez donc une section `clean`
 
-5. Si vous avez le temps, regardez d’autres Makefile (sur le net, sur Github), essayez de comprendre ce qu’ils font.
+5. Si vous avez le temps, regardez d’autres `Makefile` (sur le net, sur Github, etc.). Essayez de comprendre ce qu’ils font.
 
-Note : en réalité, vous pouvez même utiliser `make` pour compiler votre programme sans Makefile. Avec un fichier `moncode.c` :
+Note : en réalité, vous pouvez même utiliser `make` pour compiler votre programme sans `Makefile`. Avec un fichier `moncode.c` :
 
 ```console
 $ make moncode
 ```
 
-Dans ce cas `make` va voir qu’il n’y a pas de Makefile, donc pas d’instructions correspondantes à `moncode`. Il va constater aussi qu’il n‘y a pas de fichier exécutable de ce nom. Par contre il va voir qu’il y a un fichier avec l’extension `.c` qui porte ce nom. Il sait qu’il peut compiler des fichiers C, et comment. Il va donc compiler ce fichier avec une commande par défaut la plus simple : `gcc moncode.c -o moncode` 
+Dans ce cas `make` va voir qu’il n’y a pas de `Makefile`, donc pas d’instructions correspondantes à `moncode`. Il va constater aussi qu’il n‘y a pas de fichier exécutable de ce nom. Par contre il va voir qu’il y a un fichier avec l’extension `.c` qui porte ce nom. Il sait qu’il peut compiler des fichiers C, et comment. Il va donc compiler ce fichier avec une commande par défaut la plus simple : `gcc moncode.c -o moncode` 
 
-Néanmoins, il vaut mieux toujours créer un Makefile, qui permet d’avoir un meilleur contrôle, surtout quand on fait des programmes plus complexes (qui font appel à des bibliothèques externes, etc.).
+Néanmoins, il vaut mieux toujours créer un `Makefile`, qui permet d’avoir un meilleur contrôle, surtout quand on fait des programmes plus complexes (qui font appel à des bibliothèques externes, etc.).
 
-#### Un makefile pour ce projet
+#### Un `Makefile` pour notre projet
 
 Dans ce projet on aura un seul fichier (dans un premier temps) pour le jeu, et on utilisera juste la bibliothèque `ncurses` pour l’affichage dans la console.
 
-Voilà donc une base de Makefile pour se faciliter la vie dans la compilation du projet :
+Voilà donc une base de `Makefile` pour se faciliter la vie dans la compilation du projet :
 
 ```makefile
 CFLAG=-Wall -g
@@ -142,11 +142,11 @@ clean:
     rm -f pacman
 ```
 
-Quand on fait appel à une bibliothèque partagée (quand on a installé `ncurses` avec `apt`, on l’a installée dans un répertoire spécifique, accessible à tous les programmes) on l’appelle avec le *flag* `-l` accolé au nom de la bibliothèque. Donc `-lncurses` dans notre cas. Attention, on ne peut l’appeler que dans un ordre précis, ici en dernier (il faut avoir généré les fichiers objets avant de l’appeler, voir l’annexe pour apprendre ce que sont des fichiers objets).
+Quand on fait appel à une bibliothèque partagée pré-compilée (quand on a installé `ncurses` avec `apt`, on l’a installée dans un répertoire spécifique, accessible à tous les programmes) on l’appelle avec le *flag* `-l` accolé au nom de la bibliothèque. Donc `-lncurses` dans notre cas. Attention, on ne peut l’appeler que dans un ordre précis, ici en dernier (il faut avoir généré les fichiers objets avant de l’appeler, voir l’annexe sur la compilation pour apprendre ce que sont des fichiers objets).
 
 ### À la découverte de `ncurses`
 
-Nous avons installé cette bibliothèque, c’est pour s’en servir, non ? Maintenant que nous avons tout mis en place (Makefile, etc.), testons-la !
+Nous avons installé cette bibliothèque, c’est pour s’en servir, non ? Maintenant que nous avons tout mis en place (`Makefile`, etc.), testons-la !
 
 Créez un fichier `test-ncurses.c` :
 
@@ -180,26 +180,26 @@ Quelques explications ?
 
 4. `refresh()` procède à un rafraîchissement de la fenêtre, en mettant à jour ce qui a été modifié dans celle-ci (p. ex. l’affichage d’un message)
 
-5. `getch()` sert à attendre l’appuie d’une touche
+5. `getch()` sert à attendre l’appui d’une touche
 
-6. `endwin()` comme son nom l’indique, ferme la « fenêtre » et restaure les paramètres par défaut du terminal qu’on avait quitté pour lancer le programme
+6. `endwin()` comme son nom l’indique, ferme la « fenêtre » et restaure les paramètres du terminal qu’on avait quitté pour lancer le programme
 
 7. Vu qu’on quitte, et si on en est là c’est que tout s’est passé correctement, on retourne le code correspondant à une sortie sans erreur (a priori 0)
 
-Et voilà ! Si vous voulez jeter un œil à d’autres fonctions ou avoir d’autres explication sur celles que nous avons utilisé, voilà une [cheatsheet](https://thenamankumar.github.io/ncurses-cheatsheet/), et bien sûr [la doc](https://www.gnu.org/software/guile-ncurses/manual/html_node/index.html). Voilà également [un site](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/index.html) qui explique de manière très claire et progressive cette bibliothèque.
+Et voilà ! Si vous voulez jeter un œil à d’autres fonctions ou avoir d’autres explications sur celles que nous avons utilisées, voilà une [cheatsheet](https://thenamankumar.github.io/ncurses-cheatsheet/), et bien sûr [la doc](https://www.gnu.org/software/guile-ncurses/manual/html_node/index.html). Voilà également [un site](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/index.html) qui explique de manière très claire et progressive cette bibliothèque.
 
-Vous pouvez aussi rajouter des lignes au Makefile pour compiler et lancer spécifiquement ce programme qui servira à tester que ncurse est bien installée et fonctionne (appelez la section `test-ncurse:` par exemple).
+Vous pouvez aussi rajouter des lignes au `Makefile` pour compiler et lancer spécifiquement ce programme qui servira à tester que ncurse est bien installée et fonctionne (appelez la section `test-ncurse:` par exemple).
 
 Une fois ce programme lancé, vous constaterez que comme notre premier programme il affiche quelque chose dans la console, mais vous voyez qu’il permet de tout effacer, d’afficher le message quelque part dans la fenêtre, de réagir à l’appui d’une touche sur le clavier, et de revenir à l’état dans lequel était le terminal avant le lancement du programme.
 
-Ce qui nous amène à un point relativement important : si le programme plante (et ça risque d’arriver pendant le développement d’un jeu) on risque de ne pas retrouver les paramètres d’origine du terminal, le rendant inutilisable. Deux options : 
+Ce qui nous amène à un point relativement important : si le programme plante (et ça risque d’arriver pendant le développement d’un jeu) on risque de ne pas retrouver les paramètres d’origine du terminal, le rendant inutilisable (rien ne s’affichera quand on tapera sur le clavier, etc.). Deux options : 
 
 1. on ferme le terminal et on le relance (efficace mais pas élégant)
-2. on se crée un script de récupération
+2. on se crée un script de récupération des paramètres du terminal
 
-Cette deuxième option est proposée par Arnaud Feltz dans son [tutoriel sur `ncurses`](https://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=premier_pas), que je vous invite bien sûr à parcourir (nous nous contenterons d’utiliser les fonctions qui sont utiles pour notre jeu, cet atelier n’est pas un atelier `ncurses`).
+Cette deuxième option est proposée par Arnaud Feltz dans son [tutoriel sur `ncurses`](https://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=premier_pas), que je vous invite bien sûr à parcourir (d’autant que nous nous contenterons d’utiliser seulement les fonctions qui sont utiles pour notre jeu, cet atelier n’étant pas un atelier `ncurses`).
 
-Pour ce faire, il propose de créer le fichier suivant sous le nom que vous voulez (sos est pas mal) :
+Pour ce faire, il propose de créer le fichier suivant sous le nom que vous voulez (`sos` est pas mal) :
 
 ```bash
 #!/bin/sh
@@ -214,7 +214,7 @@ Rendez ce script exécutable avec la commande :
 $ chmod +x sos
 ```
 
-Si d’aventure votre programme ne remet pas le terminal en ordre quand il quitte, et que vous ne voyez plus ce que vous écrivez, restez calmes et tapez juste (à l’aveugle) `./sos` (d’où l’intérêt de choisir un nom court) et tout reviendra dans l’ordre (devrait). Testez ce script quand tout va bien ;)
+Si d’aventure votre programme ne remet pas le terminal en ordre quand il quitte, et que vous ne voyez plus ce que vous écrivez, restez calmes et tapez juste (à l’aveugle) `./sos` (d’où l’intérêt de choisir un nom court) et tout reviendra dans l’ordre (devrait). Testez ce script pour voir s’il s’exécute sans erreur quand tout va bien, avant d’en avoir besoin : ce sera trop tard quand le terminal sera en carafe pour se rendre compte que le fichier ne s’exécute pas correctement ;)
 
 Maintenant vous pouvez vous amuser à tout casser dans le programme test (supprimer des commandes, etc.) pour bien voir ce que fait chaque fonction.
 
@@ -240,13 +240,13 @@ Notre fonction principale `main()` va, dans l’ordre, du moment que le jeu est 
 
 4. Attendre puis lancer la partie si le joueur l’ordonne (ou quitter)
 
-5. lancer la boucle de jeu : tant que le joueur n’a pas abandonné (quitté), gagné ou perdu, on reste dans le jeu c’est à dire qu’on affiche le labyrinthe, on teste le clavier, et on update le jeu enfonction des touches enfonçées. Pour le moment on va juste afficher le jeu tant que le joueur ne quitte pas
+5. Lancer la boucle de jeu : tant que le joueur n’a pas abandonné (quitté), gagné ou perdu, on reste dans le jeu c’est à dire qu’on affiche le labyrinthe, on teste le clavier, et on update le jeu en fonction des touches enfoncées… et on recommence. Pour le moment on va juste afficher le jeu tant que le joueur ne quitte pas
 
 7. Arrêter le jeu si le joueur quitte.
 
 #### Déclaration des fonctions
 
-Nous allons donc, dans un premier temps, créer les fonctions suivantes, que nous allons laisser vides. Toutes ces fonctions vont agir sur la varibale globale `labyrinthe`, la plupart ne prendront donc pas d’argument et ne renverrons rien, sauf `update()` qui va avoir besoin de recevoir la touche enfoncée par le joueur pour mettre à jour sa position selon ses mouvements :
+Nous allons donc, dans un premier temps, créer les fonctions suivantes, que nous allons laisser vides. Toutes ces fonctions vont agir sur la variable globale `labyrinthe` (en fait le contenu de notre écran de jeu, que nous déclarerons et définirons plus tard), la plupart ne prendront donc pas d’argument et ne renverrons rien, sauf `update()` qui va avoir besoin de recevoir la touche enfoncée par le joueur pour mettre à jour sa position selon ses mouvements :
 
 ```C
 void init_jeu(void)
@@ -269,9 +269,9 @@ Si ces fonctions ne font rien, cela ne nous empêche pas de créer le squelette 
 
 #### Initialisations
 
-Dans `main()` on va appeler deux fonctions pour initialiser l’écran : `initscr()` que nous avons déjà vue, et `noecho()` qui va empêcher que lorsqu’on appuie sur une touche, le caractère correspondant soit affiché dans la console, car on va utiliser les touches du clavier pour déclencher des actions dans le jeu (lancer la partie, quitter, déplacer le sprite…), il serait malvenu que chaque appui sur une touche affiche des choses dans la console.
+Dans `main()` on va appeler deux fonctions pour initialiser l’écran : `initscr()` que nous avons déjà vue, et `noecho()` qui va empêcher que lorsque l’on appuie sur une touche, le caractère correspondant soit affiché dans la console. En effet, on va utiliser les touches du clavier pour déclencher des actions dans le jeu (lancer la partie, quitter, déplacer le sprite…), il serait malvenu que chaque appui sur une touche affiche des choses dans la console.
 
-Ensuite appeler la fonction `init_jeu()` (même si elle est encore vide pour le moment), qui préparera le lancement du jeu  quand nous l’aurons écrite.
+Ensuite appeler la fonction `init_jeu()` (même si elle est encore vide pour le moment), qui préparera le lancement du jeu, quand nous l’aurons écrite.
 
 Je vous conseille de tester/compiler le programme fréquemment, même s’il ne fait rien, ne serait-ce que pour détecter les erreurs de pure forme (syntaxe…). En effet les erreurs sont difficiles à détecter, et le compilateur peut être assez chatouilleux. Si vous écrivez beaucoup de lignes de code, vous risquez d’avoir beaucoup d’erreurs et le débuggage sera sinon difficile, au moins fastidieux.
 
@@ -303,7 +303,7 @@ if (touche !='j' && touche !='J')
 
 Voilà, vous savez comment on écrit une structure `if…` en C. `&&` est l’opérateur logique ̀`AND`. C’est l’occasion aussi de revenir sur un mécanisme important en C et que nous avons quelque peu occulté : la déclaration.
 
-Toute variable doit être, avant toute autre opération, déclarée en C. C’est à dire que l’on va demander de réserver un espace mémoire où l’on pourra stocker une valeur. Et la taille de l’espacé réservé va dépendre du [type](https://fr.wikibooks.org/wiki/Programmation_C/Types_de_base#cite_ref-:0_4-0). Par exemple un entier en C, `int`, occupera 4 octets (32 bits) en mémoire sur les ordinateurs de bureau courants (notez que ça peut être différent sur des machines moins puissantes avec juste des processeurs 16 bits par exemple). Donc quand on écrit `int a` cela signifie que l’on réserve 4 octets en mémoire, accessibles par la référence `a`. Et on pourra stocker des valeurs entières à cet emplacement mémoire (une série de 32 chiffres 0 et 1 qui seront interprétés comme formant un entier) en réalisant une affectation : `a = 45`. Comme cela représente un espace limité de 4 octets, on ne pourra stocker que des valeurs entières comprises entre -2<sup>31</sup> (soit -2 147 483 648) et 2<sup>31</sup>-1 (soit 2 147 483 647). Si on cherche à stocker autre chose à cet emplacement (du texte, des nombres à virgules…) ça va mal se passer, le compilateur refusera de compiler.
+Toute variable doit être, avant toute autre opération, déclarée en C. C’est à dire que l’on va demander de réserver un espace mémoire où l’on pourra stocker une valeur. Et la taille de l’espace réservé va dépendre du [type](https://fr.wikibooks.org/wiki/Programmation_C/Types_de_base#cite_ref-:0_4-0). Par exemple un entier en C, `int`, occupera 4 octets (32 bits) en mémoire sur les ordinateurs de bureau courants (notez que cela peut être différent sur des machines moins puissantes, avec juste des processeurs 16 bits par exemple). Donc quand on écrit `int a` cela signifie que l’on réserve 4 octets en mémoire, accessibles par la référence `a`. Et on pourra stocker des valeurs entières à cet emplacement mémoire (une série de 32 chiffres 0 et 1 qui seront interprétés comme formant un entier) en réalisant une affectation, par exemple : `a = 45`. Comme cela représente un espace limité de 4 octets, on ne pourra stocker que des valeurs entières comprises entre -2<sup>31</sup> (soit -2 147 483 648) et 2<sup>31</sup>-1 (soit 2 147 483 647). Si on cherche à stocker autre chose à cet emplacement (du texte, des nombres à virgules…) ça va mal se passer, le compilateur refusera de compiler.
 
 Par exemple vous pouvez essayer de compiler ce code (créez un autre fichier `test.c`, compilez-le (vous vous rappelez de la commande pour compiler ?) et lisez le message d’erreur) : 
 
@@ -315,13 +315,13 @@ int main(void){
 }
 ```
 
-Note : C’est une situation assez différente de ce qui se passe en Python par exemple, ou la déclaration est implicite. Si on écrit `a = 1` en Python, l’interpréteur va réserver un espace en mémoire où il va mettre la valeur 1, et `a` sera une référence vers cet espace mémoire. Si on écrit ensuite `a = "c’est une phrase"`, alors il va placer `"c’est une phrase"` dans un autre espace mémoire, et `a` sera désormais une référence vers cet autre espace mémoire. Ce n’est pas tant la valeur de `a` qui change que l’endroit en mémoire vers lequel elle pointe. En C c’est beaucoup plus rigide : `a` est en quelque sorte le nom d’un endroit précis réservé en mémoire, qui ne changera jamais (à moins d’utiliser des fonctions spéciales), et dans lequel on ne peut mettre que ce qu’on a dit qu’on y mettrait.
+Note : C’est une situation assez différente de ce qui se passe en Python par exemple, ou la déclaration est implicite. Si on écrit `a = 1` en Python, l’interpréteur va réserver un espace en mémoire où il va mettre la valeur 1, et `a` sera une référence vers cet espace mémoire. Si on écrit ensuite `a = "c’est une phrase"`, alors il va placer `"c’est une phrase"` dans un autre espace mémoire, et `a` sera désormais une référence vers cet autre espace mémoire. Ce n’est pas tant la valeur de `a` qui change que l’endroit en mémoire vers lequel elle pointe. En C c’est beaucoup plus rigide : `a` est en quelque sorte le nom d’un endroit précis réservé en mémoire, qui ne changera jamais (à moins d’utiliser des fonctions spéciales), et dans lequel on ne peut mettre que ce qu’on a dit qu’on y mettrait. C’est aussi ce qui rend le C si rapide : chaque variable n’occupe que la place qui lui est réservée dans des espaces contigus dont la taille est prévisible, et il n‘y a, après la compilation, aucun mécanisme de vérification (comme un ramasse miette tel celui du Python).
 
 Cette parenthèse sur la déclaration refermée, il nous suffit ensuite de tester dans notre programme la valeur de `touche` et quitter si la touche n’est pas celle indiquée pour démarrer le jeu.
 
 En quittant notre fonction `main()`, ne pas oublier de réinitialiser la console proprement (avec `endwin()`) et de retourner la valeur qui indique que tout s’est bien passé (`EXIT_SUCCESS`).
 
-Testez que ce programme s’arrête bien quand vous appuyer sur les touches voulues.
+Testez que ce programme s’arrête bien quand vous appuyez sur les touches voulues.
 
 #### La boucle de jeu
 
@@ -336,7 +336,7 @@ while(1)
 
 Cette boucle va tourner à l’infini vu que la condition `1` est toujours vraie.
 
-Note : le type booléen n’existe pas en C. On va utiliser des entiers pour coder les valeurs booléenne. `true` sera codé par 1 (et en fait toute autre valeur que 0), `false` par 0. Depuis la version C99 du C, on peut utiliser formellement les mots clefs `true` et `false` en incluant le *header* `stdbool.h`. Mais « sous le capot » ces mots clefs sont remplacés par les valeurs `0` et `1` lors de la compilation.
+Note : le type booléen n’existe pas en C. On va utiliser des entiers pour coder les valeurs booléenne. `true` sera codé par 1 (et en fait toute autre valeur que 0), `false` par 0. Depuis la version C99 du C, on peut utiliser formellement les mots clefs `true` et `false` en incluant le *header* `stdbool.h`. Mais « sous le capot » ces mots clefs sont remplacés par les valeurs `0` et `1` lors de la compilation (avec un `#define`).
 
 Dans cette boucle on va :
 
@@ -357,11 +357,11 @@ else
 
 On voit ici que dans le bloc du `else` si on n’a qu’une instruction sur une ligne, on omet les accolades. On a besoin des accolades pour rassembler plusieurs lignes d’instructions dans un même bloc.
 
-N’oubliez pas lorsque vous quittez (la seule chose que votre programme permettra de faire réellement) de le faire proprement (réinitialiser la console, retourner une valeur de sortie sans erreur). Vous pouvez au préalable afficher un message de fin si vous le souhaitez, ou demander encore la confirmation par un appui sur une touche.
+N’oubliez pas lorsque vous quittez (la seule chose que pour le moment votre programme permettra de faire), de le faire proprement (réinitialiser la console, retourner une valeur de sortie sans erreur). Vous pouvez au préalable afficher un message de fin si vous le souhaitez, ou demander encore la confirmation par un appui sur une touche.
 
 Testez votre programme, même s’il ne fait pas encore grand chose.
 
-Nous allons remédier à ça en nous occupant maintenant des autres fonctions : initialiser le jeu, dessiner le jeu et, bien sûr, faire la mise à jour du jeu (update).
+Nous allons remédier à ce vide en nous occupant maintenant des autres fonctions : initialiser le jeu, dessiner le jeu et, bien sûr, faire la mise à jour du jeu (update).
 
 ### Initialisation du jeu : création du labyrinthe
 
@@ -387,7 +387,7 @@ est un commentaire
 sur plusieurs lignes */
 ```
 
-Ensuite on va déclarer une variable globale qui est un tableau à deux dimensions, c’est à dire une liste de listes, comme vous avez certainement déjà vu en Python. Par contre les listes, ou plus exactement table à une dimension, est assez différent en C de ce que vous connaissez en Python, on va le voir plus bas. Ce tableau va représenter notre labyrinthe et les choses qu’il contient (notre écran de jeu en somme). Il ne contiendra que des caractères vu qu’on va représenter tous les éléments graphiques de notre jeu avec des caractères. Pour déclarer un tableau en C on a besoin de deux choses :
+Ensuite on va déclarer une variable globale qui est un tableau à deux dimensions, c’est à dire une liste de listes, comme vous avez certainement déjà vu en Python. Par contre le type liste, ou plus exactement table à une dimension, est assez différent en C de ce que vous connaissez en Python, on va le voir plus en détail ci-dessous. Ce tableau va représenter notre labyrinthe et les choses qu’il contient (notre écran de jeu en somme). Il ne contiendra que des caractères vu qu’on va représenter tous les éléments graphiques de notre jeu avec des caractères. Pour déclarer un tableau en C on a besoin de deux choses :
 
 * le type de données que l’on va mettre dans notre tableau (ou seulement des entiers, ou seulement des flottants, ou seulement des caractères, etc.)
 * la taille du tableau
@@ -426,7 +426,7 @@ void initialize(void){
  } 
 ```
 
-Note : **important**, le compilateur C ne vérifie pas les indices, si vous donnez le mauvais indice pour lire ou écrire dans un tableau, et que cet indice ne correspond pas à la dimension du tableau – par exemple vous avez un tableau déclaré ainsi : `int t[2][3]` de 2 lignes et 3 colonnes et vous lisez la valeur `t[3][2]`, soit la 4<sup>ème</sup> ligne et la 3<sup>ème</sup> colonne (les index commencent à 0) – c’est à dire des colonnes et des lignes qui n’existent pas, vous allez en fait lire des valeurs dans un emplacement mémoire qui ne correspond pas à un élément du tableau, contrairement àce que vous croyez. Et cela sans qu’aucune erreur ne soit soulevée par le compilateur qui va très consciencieusement faire ce que vous lui demandez, même si c’est une grossière, et fatale, erreur. Vous allez donc lire donc des valeurs indéterminée qui ne correspondent à rien sans vous en rendre compte.
+Note : **important**, le compilateur C ne vérifie pas les indices, si vous donnez le mauvais indice pour lire ou écrire dans un tableau, et que cet indice ne correspond pas à la dimension du tableau – par exemple vous avez un tableau déclaré ainsi : `int t[2][3]` de 2 lignes et 3 colonnes et vous lisez la valeur `t[3][2]`, soit la 4<sup>ème</sup> ligne et la 3<sup>ème</sup> colonne (les index commencent à 0) – c’est à dire des colonnes et des lignes qui n’existent pas, vous allez en fait lire des valeurs dans un emplacement mémoire qui ne correspond pas à un élément du tableau. Et cela sans qu’aucune erreur ne soit soulevée par le compilateur qui va très consciencieusement faire ce que vous lui demandez, même si c’est une grossière, et fatale, erreur. Vous allez donc lire des valeurs indéterminées qui ne correspondent à rien sans vous en rendre compte.
 
 Le bout de code ci-dessus crée juste les murs extérieurs du labyrinthe. Dans la suite de l’atelier ce sera à vous de créer le reste du labyrinthe (placer les murs, la nourriture, les fantômes, la position initiale du joueur…). Mais d’abord regardons déjà comme afficher cette base de labyrinthe.
 
@@ -459,15 +459,15 @@ Note : une subtilité ici. Les *double quotes* `"` définissent des chaînes de 
 
 La logique de la fonction `printw()` est la suivante : on indique en premier argument la chaîne de caractère (*string*) que l’on veut afficher en y incluant à l’emplacement voulu le format de la variable qu’on veut insérer dans cette chaîne, puis le nom de la variable en deuxième argument. C’est un fonctionnement familier et analogue à celui de la fonction `print()` en Python, notamment avec les `f-strings`. Ici on veut insérer une variable de type caractère dans une chaîne (qui ne contient que cette variable), on utilisera donc `%c`.
 
-Ne pas oublier, à un moment (lequel ?), d’insérer le caractère d’échappement `\n` pour aller à la ligne…
+Ne pas oublier, à un moment (lequel selon vous ?), d’insérer le caractère d’échappement `\n` pour aller à la ligne…
 
 ### Mise à jour avec la fonction `update()`
 
 On va écrire maintenant la fonction `update()` qui pour le moment est vide. Un gros morceau, le cœur du jeu, c’est là que l’on gère les déplacements du joueur, des sprites, s’il gagne, s’il perd, etc. Voyons voir comment on traite tout ça.
 
-Au préalable, il faut donc avoir un sprite joueur. On va le définir avec un `#DEFINE` (un « C » fait un Pacman très réaliste), et il faut déclarer des variables pour stocker les composantes x et y de sa position : `joueur_x`et `joueur_y`, des variables globales.
+Au préalable, il faut donc avoir un sprite joueur. On va le définir avec un `#define` (un « C » fait un Pacman très réaliste), et il faut déclarer des variables pour stocker les composantes x et y de sa position : `joueur_x`et `joueur_y`, des variables globales aussi.
 
-Il faut ensuite déterminer la position de départ du joueur dans `init_jeu()`. Je vous conseille de le mettre plutôt vers le centre de l’espace de jeu (le labyrinthe). Vous devriez savoir faire ça sans plus d’explication. Par contre, attention, il y a un petit piège pour indiquer la position du Pacman dans le labyrinthe, qui, à se stade, peut passer inaperçu. Vous en rendrez-vous compte ?
+Il faut ensuite déterminer la position de départ du joueur dans `init_jeu()`. Je vous conseille de le mettre plutôt vers le centre de l’espace de jeu (le labyrinthe). Vous devriez savoir faire ça sans plus d’explications. Par contre, attention, il y a un petit piège pour indiquer la position du Pacman dans le labyrinthe, qui, à se stade, peut passer inaperçu. Vous en rendrez-vous compte ?
 
 Pensez à compiler et tester votre jeu régulièrement, dès que vous écrivez un peu de code (par exemple avant de passer au paragraphe ou la section suivante).
 
@@ -498,7 +498,7 @@ void update(char t)
 }
 ```
 
-Notes : (1) n’oubliez pas le `break;` il est très important,  il indique au `switch` que le cas désigné a fini d’être traité, et que l’on peut sortir du `switch`. (2) vous remarquez que très bizarrement on teste des valeurs de caractère `'C'` et `'D'` alors qu’on veut déplacer le personnage avec les flèches du clavier. En fait le code des flèches directionnelles correspond aux valeurs `'A'` (haut), `'B'` (bas), `'C'` (droite) et `'D'` (gauche). En fait c’est plus compliqué que cela, mais pour le moment cela va nous suffire pour faire fonctionner le jeu. Vous pourrez donc jouer soit en appuyant sur les flèches directionnelles, soit sur les lettres A, B, C et D !! Si cela vous déplaît, rendez vous dans l’annexe 2 pour connaître un moyen plus rigoureux de traiter cette ambiguïté (et ce n’est pas la seule en C : vous avez voulu faire du C, il va falloir s’habituer !).
+Notes : (1) n’oubliez pas le `break;` il est très important,  il indique au `switch` que le cas désigné a fini d’être traité, et que l’on peut sortir du `switch`. (2) vous remarquez que très bizarrement on teste des valeurs de caractère `'C'` et `'D'` alors qu’on veut déplacer le personnage avec les flèches du clavier. En fait le code des flèches directionnelles correspond aux valeurs `'A'` (haut), `'B'` (bas), `'C'` (droite) et `'D'` (gauche). En réalité c’est plus compliqué que cela, mais pour le moment cela va nous suffire pour faire fonctionner le jeu. Vous pourrez donc jouer soit en appuyant sur les flèches directionnelles, soit sur les lettres A, B, C et D !! Si cela vous déplaît, rendez vous dans l’annexe 3 pour connaître un moyen plus rigoureux de traiter cette ambiguïté.
 
 Maintenant que l’on a détecté des déplacements, il faut mettre à jour la position du joueur. Pour cela il va falloir, dans la fonction `update()`, à la suite du bloc `switch` :
 
@@ -508,7 +508,7 @@ Maintenant que l’on a détecté des déplacements, il faut mettre à jour la p
 
 C’est à votre portée ! Implémentez, compilez et testez que vous arrivez bien à faire se déplacer le Pacman à gauche et à droite quand vous appuyez sur les flèches directionnelles gauche et droite.
 
-Ensuite, implémentez les déplacements haut et bas en rajoutant des cas au `switch`. Attention, 
+Ensuite, implémentez les déplacements haut et bas en rajoutant des cas au `switch`. Attention, pensez bien que l’écran est un repère où l’axe des y est orienté vers le bas (la première ligne est tout en haut de l’écran, la deuxième en dessous, la troisième… etc.)
 
 Pour le moment nous n’avons pas fait de gestion de collision, le Pacman peut donc traverser les murs extérieurs. Que se passe-t-il par exemple si vous allez tout le temps vers la droite ? Pourquoi ? Qu’est-ce que cela vous permet de comprendre sur le fonctionnent des tableaux et l’organisation en mémoire ? Pouvez-vous dire pourquoi cela montre que le C est un langage particulièrement peu sécurisé ?  
 
@@ -529,6 +529,8 @@ On va « simuler » le déplacement de Pacman avec des variables `test_x` et `
 
 Et voilà ! On a une base de Pacman.
 
+Il y a une manière alternative et peut-être plus efficace, en tout cas qui fonctionne dans tous les cas de figure, d’empêcher Pacman de traverser les murs. Essayez de la trouver.
+
 ## La suite
 
 Si vous faites cet atelier, c’est que vous avez un peu d’expérience de la programmation de jeux, et de la programmation tout court.
@@ -537,20 +539,20 @@ Je vous propose donc de poursuivre cet atelier, maintenant qu’on a vu l’esse
 
 Ce qu’il reste à faire :
 
-- développer un peu la fonction `init_jeu()` pour qu’elle place des murs (de manière procédurale, au hasard, ou pas), et les pastilles/nourriture pour Pacaman, et les fantômes
+- développer un peu la fonction `init_jeu()` pour qu’elle place des murs (de manière procédurale, ou complètement au hasard, ou de manière prédéfinie, selon votre envie), et les pastilles/nourriture pour Pacman, et les fantômes
 - faire un système de score (quand Pacman passe sur une pastille son score augmente - il peut y avoir plusieurs types de pastilles, et la pastille disparaît)
 - afficher le score sous le labyrinthe
 - pour les fantômes, on va faire simple : ils vont être statiques et c’est juste quand Pacman rentre dedans qu’il meurt
-- faire un système de vies (3 vies pour Pacman) et afficher le nombre de vie restantes à côté ou en dessous du score. Gérer ce qu’il se passe quand Pacman meurt ()
+- faire un système de vies (3 vies pour Pacman) et afficher le nombre de vie restantes à côté ou en dessous du score. Gérer ce qu’il se passe quand Pacman meurt (affichage ? réinitialisation ?)
 - faire un écran de *game over*
 
 Dans l’atelier suivant, on ira un peu plus loin :
 
-* on verra comment lire dans un fichier pour pouvoir éditer des niveaux
+* on verra comment lire dans un fichier texte édités par nos soins pour définir nos propres niveaux
 * on découvrira le type `struct` qui permettra de mieux ranger les variables se rapportant à Pacman, aux fantômes…
 * on fera un peu de refactoring pour améliorer la structure de notre programme
 * on donnera un peu de vie aux fantômes avec ce que l’on appelle des *finite state machines* 
-* et peut-être on utilisera des possibilités plus avancées de `ncurses`(couleur, formatage de texte…)
+* et peut-être utilisera-t-on des possibilités plus avancées de `ncurses`(couleur, formatage de texte…)
 
 ## Annexe
 
@@ -564,19 +566,19 @@ En fait quand on parle de compilateur, c’est en fait plusieurs programmes qui 
 
 1. Avant même la compilation, c’est le préprocesseur qui intervient, qui va appliquer les directives : inclusions, macros (constantes et fonctions) et compilation conditionnelles.
    * Les inclusions, avec `#include` consistent  à inclure (sic) le contenu (les déclarations, les définitions de fonctions, etc.) du fichier header appelé dans le fichier où figure l’inclusion.
-   * les macros constantes, avec `#define` consistent – comme nous l’avons déjà expliqué – à substituer un mot clé par une valeur donnée : `#define HAUTEUR 20` va remplacer tous les `HAUTEUR` rencontrés dans le code par la valeur `20`. L’avantage par rapport à définir une variable constante, est  qu’une variable sera compilée, prendra de l’espace mémoire, etc. alors qu’ici tout est géré une fois pour toue avant la compilation justement. À noté que ces macros peuvent concerner toute expression constante, ce ne sont pas que des valeurs numériques : ce peut être une chaîne de caractère, etc. voire même un calcul avec des références à d’autres macros, comme `#define AIRE HAUTEUR * LARGEUR`ou enfin une instruction « fixe » telle que`#define HELLO puts("Hello world!")`
+   * les macros constantes, avec `#define`, consistent à substituer un mot clé par une valeur donnée : `#define HAUTEUR 20` va remplacer tous les `HAUTEUR` rencontrés dans le code par la valeur `20`. L’avantage, par rapport à définir une variable constante, est  qu’une variable sera compilée, prendra de l’espace mémoire, etc. alors qu’ici tout est géré une fois pour toute avant la compilation justement. À noter que ces macros peuvent concerner toute expression constante, ce ne sont pas que des valeurs numériques : ce peut être une chaîne de caractère, etc. voire même un calcul avec des références à d’autres macros, comme `#define AIRE HAUTEUR * LARGEUR` ou enfin une instruction « fixe » telle que`#define HELLO puts("Hello world!")`
    * les macros fonctions, qui prennent des paramètres : `#define AJOUTE(a, b) a+b` ou `#define MULTIPLIE(a, b) ((a) * (b))`. Dans le dernier cas les parenthèse sont nécessaires car si `a` est une expression avec un calcul, comme `4 + 2`, il faut calculer `a` avant de le multiplier par `b` et donc préserver la priorité des opérations mathématiques : `(4 + 2) * …` ne donne pas le même résultat que `4 + 2 *…`
-   * les macros conditionnelles telles que `#if, #ifdef, #ifndef, #else, #elif, #endif`. Elles permettent de conserver ou supprimer des bouts de code selon si certaines conditions sont valides ou pas. En général c’est utilisé pour adapter le code et les compilations à différentes machines ou systèmes. Dans notre exemple choisir entre utiliser un bout de code qui exploite la bibliothèque `conio.h` sur Windows, ou `curses.h`sur Linux, en évaluant la  valeur de certaines constantes, spécifiques à Windows ou Linux. 
-2. Ensuite le compilateur à proprement parler va, à partir de ce code préparé par le préprocesseur, générer du code assembleur qui sera immédiatement assemblé en langage machine binaire. On peut garder une trace de ce code assembleur avec l’option `-S`de `gcc`, qui va le forcer à **S**topper après l’étape de compilation sans se lancer dans l’assemblage.
-3. Le code binaire généré par l’assembleur est en fait une collection de fichiers appelés objets et dont l’extension est `.o`. Des bibliothèques qui ont pu être compilée à l’avance (donc des binaires) sont aussi des fichiers objets, mais avec l’extension `.a`. Créer le fichier exécutable à partir de ces éléments est comme assembler un puzzle : il faut que dans l’exécutable chaque bout de code qui a besoin d’en appeler un autre sache où le trouver quand il sera chargé pour exécution (à quelle adresse en mémoire il est stocké). Pour cela l’éditeur de lien utilise une table de segment qui liste toutes les relations et relie les éléments au sein du fichier exécutable. Si une bibliothèque manque à cette étape par exemple, on aura une erreur de type `undefined reference`. 
+   * les macros conditionnelles telles que `#if, #ifdef, #ifndef, #else, #elif, #endif`. Elles permettent de conserver ou supprimer des bouts de code selon la validité de certaines conditions. En général c’est utilisé pour adapter le code et les compilations à différentes machines ou systèmes. Dans notre exemple on pourrait faire en sorte de choisir entre utiliser un bout de code qui exploite la bibliothèque `conio.h` sur Windows, ou `curses.h` sur Linux, en évaluant la  valeur de certaines constantes, spécifique à Windows ou Linux. 
+2. Ensuite le compilateur à proprement parler va, à partir de ce code préparé par le préprocesseur, générer du code assembleur qui sera immédiatement assemblé en langage machine binaire. On peut garder une trace de ce code en assembleur avec l’option `-S`de `gcc`, qui va le forcer à **S**topper après l’étape de compilation sans se lancer dans l’assemblage.
+3. Le code binaire généré par l’assembleur est en fait une collection de fichiers appelés objets (rien à voir avec la POO) et dont l’extension est `.o`. Des bibliothèques qui ont pu être compilées à l’avance (donc des binaires) sont aussi des fichiers objets, mais avec l’extension `.a`. Créer le fichier exécutable à partir de ces éléments est comme assembler un puzzle : il faut que dans l’exécutable chaque bout de code qui a besoin d’en appeler un autre sache où le trouver quand il sera chargé pour exécution (à quelle adresse en mémoire il est stocké). Pour cela l’éditeur de lien utilise une table de segment qui liste toutes les relations et relie les éléments au sein du fichier exécutable.
 
 ### 2. L’organisation en mémoire 
 
-**À faire ??**
+**À faire ??** Ce n’est pas une encyclopédie, et ça me semble difficile à expliquer sans animation (les schémas risquent d’être compliqués)
 
 ### 3. `getch()`et les flèches directionnelles
 
-Nous avons vu que `getch()`renvoyait un code correspondant à des lettres majuscules (A, B, C et D) pour les flèches directionnelles (respectivement haut, bas, droite et gauche). Le problème est donc que notre personnage ira vers la droite si le joueur appuie sur la flèche de droiite, mais aussi sur A majuscule. En fait la situation est un peu plus subtile que ça.
+Nous avons vu que `getch()`renvoyait un code correspondant à des lettres majuscules (A, B, C et D) pour les flèches directionnelles (respectivement haut, bas, droite et gauche). Le problème est donc que notre personnage ira vers la droite si le joueur appuie sur la flèche de droite, mais aussi sur A majuscule. Mais en fait, la situation est un peu plus subtile que ça.
 
 Sous Linux,`getch()`pousse en fait 3 valeurs dans un tampon (buffer) quand on appuie sur les flèches directionnelles :
 
@@ -618,7 +620,7 @@ if (getch() == '/033') // On détecte qu’on a affaire à un caractère spécia
 
 Et qui veulent un code lisible !
 
-Lors de l’initialisation, on peut faire appel à `keypad()`en lui indiquant qu’on veut qu’il nous donne accès directement aux codes des touches spéciales (bref, que `ncurses` vire pour nous les échappements). Pour cela il faut lui passer l’argument `TRUE`, en lui indiquant qu’on veut activer cette fonctionnalité pour l’écran par défaut :
+Lors de l’initialisation, on peut faire appel à `keypad()`en lui indiquant qu’on veut qu’il nous donne accès directement aux codes des touches spéciales (bref, on veut que `ncurses` vire pour nous les échappements). Pour cela il faut lui passer l’argument `TRUE`, en lui indiquant qu’on veut activer cette fonctionnalité pour l’écran par défaut :
 
 ```c
 […]
