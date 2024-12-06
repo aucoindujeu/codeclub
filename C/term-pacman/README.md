@@ -36,7 +36,7 @@ Ceci installera une Ubuntu sur votre machine. Vous aurez ainsi accès à un term
 
 #### La théorie
 
-Le langage C est un langage compilé, ce qui le distingue des langages interprétés comme le Python, le Javascript, etc. Un langage interprété est exécuté par un programme appelé interpréteur, qui traduit au fur et à mesure et en direct les instructions qu’il y a dans le programme. Pour les langage compilé au contraire, un programme appelé compilateur traduit une fois pour tout les instructions en langage machine, pour créer un exécutable. Celui-ci est distinct du fichier dans lequel on a écrit le programme et est illisible. Par contre il s’exécute beaucoup plus rapidement car il n‘y a pas d’intermédiaire entre les instructions et leur exécution. Cela les rends très puissant, mais relativement compliqués, et parfois dangereux (à l’origine de gros plantages).
+Le langage C est un langage compilé, ce qui le distingue des langages interprétés comme le Python, le Javascript, etc. Un langage interprété est exécuté par un programme appelé interpréteur, qui traduit au fur et à mesure et en direct les instructions qu’il y a dans le programme. Pour les langages compilés au contraire, un programme appelé compilateur traduit une fois pour toute les instructions en langage machine, pour créer un exécutable. Celui-ci est distinct du fichier dans lequel on a écrit le programme et est illisible par un humain. Par contre il s’exécute beaucoup plus rapidement car il n‘y a pas d’intermédiaire entre les instructions et leur exécution. Cela rend ces programmes très puissants, mais relativement compliqués à écrire, et parfois dangereux (à l’origine de gros plantages).
 
 La compilation est un processus complexe, en plusieurs étapes. Pour éviter d’alourdir l’atelier, vous trouverez sa description plus complète en annexe. Pour le moment il suffit de retenir qu’il s’agit de lancer une commande qui va transformer notre programme en exécutable. Par exemple en supposant que `moncode.c` est un fichier écrit en C, on peut le compiler en un exécutable que l’on peut appeler `monexecutable` avec `gcc` qui est le compilateur de référence sur Linux (mais il en existe d’autres) :
 
@@ -49,6 +49,8 @@ On peut écrire aussi :
 ```console
 $ gcc -o monexecutable moncode.c  
 ```
+
+L’option `-o` sert à donner le nom que l’on veut à l’exécutable, sinon il s’appelle `a.out` par défaut.
 
 On peut ensuite lancer l’exécutable ainsi :
 
@@ -81,7 +83,7 @@ Si on lance la commande `make clean` alors le script va effacer (irrémédiablem
 Vous l’aurez compris, un Makefile permet de préparer/stocker des suites de commandes que l’on pourra appeler lorsque nécessaire par un simple mot clef.
 La première ligne du Makefile sert à préciser des options par défaut. Ici `-Wall` signifie qu’on demande à ce que tous les warnings soient affichés durant la compilation, et `-g` que des informations de débuggages puissent être générées (qui pourront être exploitées par des outils comme `GDB`).
 
-Les Makefiles peuvent être très longs et très compliqués, avec des pages et des pages de conditions à tester et d’options à choisir en fonction par exemple de la machine sur laquelle le programme est compilé, où alors si on en est des étapes données d’un projet. Ces scripts servent à adapter la compilation au contexte. Dans notre cas le Makefile sera beaucoup plus simple, mais déjà bien pratique néanmoins.
+Les Makefiles peuvent être très longs et très compliqués, avec des pages et des pages de conditions à tester et d’options à choisir en fonction par exemple de la machine sur laquelle le programme est compilé, où alors d’à quelle étape on en est d’un projet. Ces scripts servent à adapter la compilation au contexte. Dans notre cas le Makefile sera beaucoup plus simple, mais déjà bien pratique néanmoins.
 
 #### La pratique
 
@@ -98,7 +100,7 @@ int main(void) {
 
 Expliquons un peu ce code :
 
-* La première ligne : le `#include` est une instruction pour le préprocesseur. Le préprocesseur intervient avant la compilation : il modifie un peu le programme que l’on a écrit pour rendre sa compilation possible. Par exemple on peut s’en servir pour définir des constantes, ou comme ici indiquer que l’on veut faire appel à la bibliothéque (qu’ici on appelle *header*, d’où l’extention `.h`) pour les entrées/sorties standard (grosso modo dans la console). En effet plus on est de bas niveau, plus il faut expliciter de choses. Ici il faut dire explictement que l’on va écrire des choses dans la console, il faut donc incorporer les bouts de codes qui permettent d’écrire dans la console. En python par exemple c’est inutile, implicitement on part du principe que dans tous les cas on va utiliser les instructions standards pour écrire des choses dans la console. C’est pour ça qu’un « exécutable » Python est bien plus lourd qu’un exécutable issu du C, car ce dernier ne contient que le strict nécessaire.
+* La première ligne : le `#include` est une instruction pour le préprocesseur. Le préprocesseur intervient avant la compilation : il modifie un peu le programme que l’on a écrit pour rendre sa compilation possible. Par exemple on peut s’en servir pour définir des constantes, ou comme ici indiquer que l’on veut faire appel à la bibliothèque (qu’ici on appelle *header*, d’où l’extention `.h`) pour les entrées/sorties standard (grosso modo dans la console). En effet plus on est de bas niveau, plus il faut expliciter de choses. Ici il faut dire explictement que l’on va écrire des choses dans la console, il faut donc incorporer les bouts de codes qui permettent d’écrire dans la console. En python par exemple c’est inutile, implicitement on part du principe que dans tous les cas on va utiliser les instructions standards pour écrire des choses dans la console. C’est pour ça qu’un « exécutable » Python est bien plus lourd qu’un exécutable issu du C, car ce dernier ne contient que le strict nécessaire.
 
 * `int main(void)` : `main()` est la fonction principale de notre programme (un peu comme `__main__` en Python). le `int` devant signifie que cette fonction retournera un entier quand elle sera exécutée. En effet c’est une convention que lorsqu’un programme s’exécute correctement, il retourne la valeur 0. S’il rencontre une erreur durant son exécution, il peut retourner la valeur 1, ou une autre valeur selon l’erreur rencontrée. Le `void` signifie que cette fonction ne prend aucun argument en entrée.
 
@@ -546,16 +548,33 @@ Dans l’atelier suivant, on ira un peu plus loin :
 
 * on verra comment lire dans un fichier pour pouvoir éditer des niveaux
 * on découvrira le type `struct` qui permettra de mieux ranger les variables se rapportant à Pacman, aux fantômes…
+* on fera un peu de refactoring pour améliorer la structure de notre programme
 * on donnera un peu de vie aux fantômes avec ce que l’on appelle des *finite state machines* 
 * et peut-être on utilisera des possibilités plus avancées de `ncurses`(couleur, formatage de texte…)
 
-## Annexes
+## Annexe
 
-### 1. L’organisation en mémoire 
+### 1. La compilation
+
+Nous avons dit que la compilation est un processus complexe, car si on écrit une seule commande, en fait il comporte plusieurs étapes. Voyons cela plus en détail, car c’est bien de le comprendre, pour comprendre les erreurs et ce qu’il se passe.
+
+En fait quand on parle de compilateur, c’est en fait plusieurs programmes qui interviennent : un préprocesseur, un compilateur proprement dit, un assembleur et un éditeur de lien. Voilà un schéma du processus complet :
+
+![Les étapes du processus de compilation](./images/Compilation.png)
+
+1. Avant même la compilation, c’est le préprocesseur qui intervient, qui va appliquer les directives : inclusions, macros (constantes et fonctions) et compilation conditionnelles.
+   * Les inclusions, avec `#include` consistent  à inclure (sic) le contenu (les déclarations, les définitions de fonctions, etc.) du fichier header appelé dans le fichier où figure l’inclusion.
+   * les macros constantes, avec `#define` consistent – comme nous l’avons déjà expliqué – à substituer un mot clé par une valeur donnée : `#define HAUTEUR 20` va remplacer tous les `HAUTEUR` rencontrés dans le code par la valeur `20`. L’avantage par rapport à définir une variable constante, est  qu’une variable sera compilée, prendra de l’espace mémoire, etc. alors qu’ici tout est géré une fois pour toue avant la compilation justement. À noté que ces macros peuvent concerner toute expression constante, ce ne sont pas que des valeurs numériques : ce peut être une chaîne de caractère, etc. voire même un calcul avec des références à d’autres macros, comme `#define AIRE HAUTEUR * LARGEUR`ou enfin une instruction « fixe » telle que`#define HELLO puts("Hello world!")`
+   * les macros fonctions, qui prennent des paramètres : `#define AJOUTE(a, b) a+b` ou `#define MULTIPLIE(a, b) ((a) * (b))`. Dans le dernier cas les parenthèse sont nécessaires car si `a` est une expression avec un calcul, comme `4 + 2`, il faut calculer `a` avant de le multiplier par `b` et donc préserver la priorité des opérations mathématiques : `(4 + 2) * …` ne donne pas le même résultat que `4 + 2 *…`
+   * les macros conditionnelles telles que `#if, #ifdef, #ifndef, #else, #elif, #endif`. Elles permettent de conserver ou supprimer des bouts de code selon si certaines conditions sont valides ou pas. En général c’est utilisé pour adapter le code et les compilations à différentes machines ou systèmes. Dans notre exemple choisir entre utiliser un bout de code qui exploite la bibliothèque `conio.h` sur Windows, ou `curses.h`sur Linux, en évaluant la  valeur de certaines constantes, spécifiques à Windows ou Linux. 
+2. Ensuite le compilateur à proprement parler va, à partir de ce code préparé par le préprocesseur, générer du code assembleur qui sera immédiatement assemblé en langage machine binaire. On peut garder une trace de ce code assembleur avec l’option `-S`de `gcc`, qui va le forcer à **S**topper après l’étape de compilation sans se lancer dans l’assemblage.
+3. Le code binaire généré par l’assembleur est en fait une collection de fichiers appelés objets et dont l’extension est `.o`. Des bibliothèques qui ont pu être compilée à l’avance (donc des binaires) sont aussi des fichiers objets, mais avec l’extension `.a`. Créer le fichier exécutable à partir de ces éléments est comme assembler un puzzle : il faut que dans l’exécutable chaque bout de code qui a besoin d’en appeler un autre sache où le trouver quand il sera chargé pour exécution (à quelle adresse en mémoire il est stocké). Pour cela l’éditeur de lien utilise une table de segment qui liste toutes les relations et relie les éléments au sein du fichier exécutable. Si une bibliothèque manque à cette étape par exemple, on aura une erreur de type `undefined reference`. 
+
+### 2. L’organisation en mémoire 
 
 **À faire ??**
 
-### 2. `getch()`et les flèches directionnelles
+### 3. `getch()`et les flèches directionnelles
 
 Nous avons vu que `getch()`renvoyait un code correspondant à des lettres majuscules (A, B, C et D) pour les flèches directionnelles (respectivement haut, bas, droite et gauche). Le problème est donc que notre personnage ira vers la droite si le joueur appuie sur la flèche de droiite, mais aussi sur A majuscule. En fait la situation est un peu plus subtile que ça.
 
