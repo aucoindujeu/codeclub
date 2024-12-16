@@ -157,10 +157,11 @@ Dans ce projet on aura un seul fichier (dans un premier temps) pour le jeu, et o
 Voilà donc une base de `Makefile` pour se faciliter la vie dans la compilation du projet :
 
 ```makefile
-CFLAG=-Wall -g
+CFLAGS=-Wall -g
+CC = gcc
 
 pacman:
-    gcc -o pacman pacman.c -lncurses
+    $(CC) $(CFLAGS) -o pacman pacman.c -lncurses
 
 clean:
     rm -f pacman
