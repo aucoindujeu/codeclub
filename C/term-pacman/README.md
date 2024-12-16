@@ -70,7 +70,7 @@ On va créer un fichier `Makefile` :
 CFLAGS=-Wall -g
 
 test:
-	gcc moncode.c -o monexecutable 
+	gcc $(CFLAGS) moncode.c -o monexecutable 
 
 clean:
 	rm -f monexecutable
@@ -81,7 +81,19 @@ Si on lance la commande `make test` alors le script va produire un fichier exéc
 Si on lance la commande `make clean` alors le script va effacer (irrémédiablement) le fichier nommé `monexecutable` avec la commande `rm…`.
 
 Vous l’aurez compris, un Makefile permet de préparer/stocker des suites de commandes que l’on pourra appeler lorsque nécessaire par un simple mot clef.
-La première ligne du Makefile sert à préciser des options par défaut du compilateur. Ici `-Wall` signifie qu’on demande à ce que tous les *warnings* soient affichés durant la compilation, et `-g` que des informations de débuggages puissent être générées (qui pourront être exploitées par des outils comme `GDB`).
+La première ligne du Makefile sert à préciser des options par défaut du compilateur. Ici `-Wall` signifie qu’on demande à ce que tous les *warnings* soient affichés durant la compilation, et `-g` que des informations de débuggages puissent être générées (qui pourront être exploitées par des outils comme `GDB`). Ensuite, quand on lance le compilateur, on lui dit de récupérer ces options avec `$(CFLAGS)`. Dans la console vous verrez les lignes de commandes qui sont lancées par `make`. 
+
+On pourrait aussi, dans le même ordre d’idée, stocker le nom du compilateur dans une variable `CC` les appels se feraient ainsi :
+
+```makefile
+CFLAGS=-Wall -g
+CC=gcc
+
+test:
+	$(CC) $(CFLAGS) moncode.c -o monexecutable
+```
+
+On peut ainsi changer facilement de compilateur si on le souhaite.
 
 Les Makefiles peuvent être très longs et très compliqués, avec des pages et des pages de conditions à tester et d’options à choisir en fonction par exemple de la machine sur laquelle le programme est compilé, où alors de l’étape à laquelle on en est d’un projet. Ces scripts servent à adapter la compilation au contexte. Dans notre cas le Makefile sera beaucoup plus simple, mais déjà bien pratique néanmoins.
 
