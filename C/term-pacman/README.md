@@ -18,12 +18,14 @@ Le C étant un langage de plutôt bas-niveau, la portablité des programmes fais
 
 Dans cet atelier nous ne traiterons que du cas Linux, soit avec `ncurses`. Voilà déjà comment l’installer (Debian et dérivée : Ubuntu, etc.) :
 
-```console
+```bash
 $ sudo apt update
 $ sudo apt install libncurses5-dev libncursesw5-dev
 ```
 
 Normalement, sous Linux, vous devriez avoir ce qu’il faut pour compiler du code C (compilateur `gcc`, etc.), mais nous vérifierons ensemble au début de l’atelier.
+
+### Installer un environnement Linux sous Windows
 
 Si vous êtes sous Windows, lancer powershell, et rentrez la commande :
 
@@ -31,6 +33,14 @@ Si vous êtes sous Windows, lancer powershell, et rentrez la commande :
 wsl --install
 ```
 Ceci installera une Ubuntu sur votre machine. Vous aurez ainsi accès à un terminal sous Linux, ce qui est exactement ce qu’il faut pour suivre cet atelier (lancez Ubuntu et installez ensuite dans ce terminal `ncurses` comme indiqué ci-dessus). Nous verrons ensemble si `wsl` demande d’autres ajustements pour compiler du code C, et au pire il y a d’autres outils pour disposer d’un environnement de développement compatible Linux sur Windows.
+
+Dans le terminal vous pouvez lancer l’environnement Linux juste avec la commande `wsl`. Une fois que vous y êtes, on va procéder à la mise à jour (souvent nécessaire quand on vient d’installer le système), et installer le compilateur `gcc` :
+
+```bash
+$ sudo apt update # met à jour la liste des packets téléchargeable, pouvant être mis à jour
+$ sudo apt upgrade # met à jour les paquets
+$ sudo apt install gcc # installe le compilateur gcc
+```
 
 ### Créer un `Makefile`
 
