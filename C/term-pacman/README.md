@@ -42,6 +42,8 @@ $ sudo apt upgrade # met à jour les paquets
 $ sudo apt install gcc # installe le compilateur gcc
 ```
 
+Vous pouvez maintenant installer `ncurses`comme expliqué dans la section précédente.
+
 ### Créer un `Makefile`
 
 #### La théorie
