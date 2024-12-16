@@ -1,17 +1,18 @@
 CFLAGS=-Wall -g
+CC=gcc
 
 jeu:
-	gcc $(CFLAGS) -o term-pacman term-pacman.c -lncurses 
+	$(CC) $(CFLAGS) -o term-pacman term-pacman.c -lncurses 
 	./term-pacman
 
 play:
 	./term-pacman
 
 compile:
-	gcc $(CFLAGS) -o term-pacman term-pacman.c -lncurses
+	$(CC) $(CFLAGS) -o term-pacman term-pacman.c -lncurses
 
 test-ncurses:
-	gcc $(CFLAGS) -o test-ncurses test-ncurses.c -lncurses
+	$(CC) $(CFLAGS) -o test-ncurses test-ncurses.c -lncurses
 	./test-ncurses
 
 cleanall:
