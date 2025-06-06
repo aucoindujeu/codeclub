@@ -2,7 +2,7 @@
 
 Ici, on vous propose un certain nombre d’ateliers pour s’initier à la programmation en C, désir exprimé par certains membres du code club.
 
-Ces ateliers son conçus pour des élèves ayant déjà de bonnes bases en programmation, et idéalement ayant réalisé les autres ateliers proposés au code club pour la programmation de jeux, soit en [LÖVE2D](../love2d/atelier0.md), soit en [Python/Pygame](../pygame/README.md)
+Ces ateliers sont conçus pour des élèves ayant déjà de bonnes bases en programmation, et idéalement ayant réalisé les autres ateliers proposés au code club pour la programmation de jeux, soit en [LÖVE2D](../love2d/atelier0.md), soit en [Python/Pygame](../pygame/README.md)
 
  Les règles du jeu sont les suivantes :
 
